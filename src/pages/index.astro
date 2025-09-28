@@ -1,11 +1,200 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+	title="AI Image Catalog - Universidad Tomás Frías" 
+	description="Genera imágenes increíbles con inteligencia artificial. Transforma tus fotos en obras maestras cinematográficas con celebridades y efectos profesionales."
+>
+	<!-- Hero Section -->
+	<section class="relative min-h-screen flex items-center justify-center bg-primary-800 overflow-hidden">
+		<div class="absolute inset-0 bg-primary-900/30"></div>
+		
+		<!-- Animated background elements -->
+		<div class="absolute inset-0 overflow-hidden">
+			<div class="absolute -top-4 -right-4 w-96 h-96 bg-secondary-400/20 rounded-full blur-3xl animate-pulse"></div>
+			<div class="absolute top-1/2 -left-8 w-80 h-80 bg-primary-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+		</div>
+
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<!-- Logo Universidad -->
+			<div class="mb-8 flex justify-center">
+				<div class="w-32 h-32 sm:w-40 sm:h-40 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-secondary-400 shadow-2xl">
+					<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjZmZmIiByeD0iMTAwIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iNzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwMzY5YTEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPklOR0VOSUVSSUFRPC90ZXh0Pgo8dGV4dCB4PSIxMDAiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzAzNjlhMSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+SU5GT1JNQVRJQ0E8L3RleHQ+Cjx0ZXh0IHg9IjEwMCIgeT0iMTQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmFjYzE1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIj5VQVRGPC90ZXh0Pgo8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxNjAiIHI9IjgiIGZpbGw9IiMwZWE1ZTkiLz4KPC9zdmc+" alt="Logo UATF" class="w-20 h-20 sm:w-24 sm:h-24" />
+				</div>
+			</div>
+
+			<h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+				<span class="text-secondary-400">AI Image</span><br />
+				<span class="bg-gradient-to-r from-white to-primary-200 bg-clip-text text-transparent">Catalog</span>
+			</h1>
+			
+			<p class="text-xl sm:text-2xl lg:text-3xl font-light mb-4 text-primary-100">
+				Universidad Tomás Frías - Ingeniería Informática
+			</p>
+			
+			<p class="text-lg sm:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-primary-50">
+				Transforma tus fotografías con el poder de la <span class="text-secondary-400 font-semibold">inteligencia artificial</span>. 
+				Genera imágenes increíbles junto a celebridades, en escenas cinematográficas épicas y con filtros profesionales.
+			</p>
+
+			<!-- CTA Buttons -->
+			<div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+				<a 
+					href="/catalog" 
+					class="group bg-secondary-400 hover:bg-secondary-500 text-primary-900 px-12 py-4 rounded-xl text-xl font-semibold transition-all duration-300 shadow-lg shadow-secondary-400/50 hover:shadow-2xl hover:scale-105 flex items-center gap-3"
+				>
+					<span>Explorar Catálogo</span>
+					<svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+					</svg>
+				</a>
+				
+				<a 
+					href="#features" 
+					class="group border-2 border-white/30 hover:border-white text-white hover:bg-white/10 px-10 py-4 rounded-xl text-xl font-medium transition-all duration-300 backdrop-blur-sm"
+				>
+					Ver Características
+				</a>
+			</div>
+
+			<!-- Stats -->
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+				<div class="text-center">
+					<div class="text-3xl sm:text-4xl font-bold text-secondary-400 mb-2">500+</div>
+					<div class="text-primary-200 text-sm sm:text-base">Estilos AI Disponibles</div>
+				</div>
+				<div class="text-center">
+					<div class="text-3xl sm:text-4xl font-bold text-secondary-400 mb-2">50+</div>
+					<div class="text-primary-200 text-sm sm:text-base">Celebridades Famosas</div>
+				</div>
+				<div class="text-center">
+					<div class="text-3xl sm:text-4xl font-bold text-secondary-400 mb-2">∞</div>
+					<div class="text-primary-200 text-sm sm:text-base">Posibilidades Creativas</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scroll indicator -->
+		<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+			<div class="animate-bounce">
+				<svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+				</svg>
+			</div>
+		</div>
+	</section>
+
+	<!-- Features Section -->
+	<section id="features" class="py-20 lg:py-32 bg-accent-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-800 mb-6">
+					¿Qué puedes crear?
+				</h2>
+				<p class="text-xl text-accent-600 max-w-3xl mx-auto leading-relaxed">
+					Nuestro catálogo AI ofrece una amplia gama de posibilidades creativas para transformar cualquier fotografía
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<!-- Feature 1: Celebridades -->
+				<div class="group bg-white rounded-2xl p-8 shadow-elegant hover:shadow-elegant-xl transition-all duration-300 hover:-translate-y-2 border border-accent-100">
+					<div class="w-16 h-16 bg-gradient-primary rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-primary-800 mb-4">Con Celebridades</h3>
+					<p class="text-accent-600 leading-relaxed">Aparece junto a tus actores y músicos favoritos en composiciones realistas y profesionales.</p>
+				</div>
+
+				<!-- Feature 2: Películas -->
+				<div class="group bg-white rounded-2xl p-8 shadow-elegant hover:shadow-elegant-xl transition-all duration-300 hover:-translate-y-2 border border-accent-100">
+					<div class="w-16 h-16 bg-gradient-primary rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 2v12l4-2 4 2V6H7z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-primary-800 mb-4">Escenas Cinematográficas</h3>
+					<p class="text-accent-600 leading-relaxed">Integra tu imagen en escenas icónicas de películas famosas con calidad profesional.</p>
+				</div>
+
+				<!-- Feature 3: Ubicaciones -->
+				<div class="group bg-white rounded-2xl p-8 shadow-elegant hover:shadow-elegant-xl transition-all duration-300 hover:-translate-y-2 border border-accent-100">
+					<div class="w-16 h-16 bg-gradient-primary rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-primary-800 mb-4">Ubicaciones Épicas</h3>
+					<p class="text-accent-600 leading-relaxed">Viaja a cualquier lugar del mundo o universos fantásticos sin salir de casa.</p>
+				</div>
+
+				<!-- Feature 4: Filtros -->
+				<div class="group bg-white rounded-2xl p-8 shadow-elegant hover:shadow-elegant-xl transition-all duration-300 hover:-translate-y-2 border border-accent-100">
+					<div class="w-16 h-16 bg-gradient-primary rounded-xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-primary-800 mb-4">Filtros Cinematográficos</h3>
+					<p class="text-accent-600 leading-relaxed">Aplica estilos visuales de películas famosas para lograr el look perfecto.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-20 lg:py-32 bg-primary-900">
+		<div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8">
+				¿Listo para crear algo <span class="text-secondary-400">increíble?</span>
+			</h2>
+			<p class="text-xl text-primary-100 mb-12 leading-relaxed">
+				Únete a la revolución de la imagen artificial y descubre todo lo que puedes lograr
+			</p>
+			
+			<a 
+				href="/catalog" 
+				class="inline-flex items-center gap-4 bg-secondary-400 hover:bg-secondary-500 text-primary-900 px-12 py-5 rounded-xl text-xl font-semibold transition-all duration-300 shadow-lg shadow-secondary-400/50 hover:shadow-2xl hover:scale-105"
+			>
+				<span>Comenzar Ahora</span>
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+				</svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-accent-900 text-white py-12">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div>
+					<h3 class="text-xl font-semibold text-secondary-400 mb-4">AI Image Catalog</h3>
+					<p class="text-accent-300 leading-relaxed">
+						Proyecto desarrollado por estudiantes de Ingeniería Informática de la Universidad Tomás Frías.
+					</p>
+				</div>
+				<div>
+					<h4 class="text-lg font-medium mb-4">Universidad</h4>
+					<p class="text-accent-300">Universidad Tomás Frías</p>
+					<p class="text-accent-300">Facultad de Ciencias y Tecnología</p>
+					<p class="text-accent-300">Carrera de Ingeniería Informática</p>
+				</div>
+				<div>
+					<h4 class="text-lg font-medium mb-4">Proyecto</h4>
+					<p class="text-accent-300">Catálogo de Imágenes AI</p>
+					<p class="text-accent-300">Tecnología: Astro + Tailwind</p>
+					<p class="text-accent-300">Año: 2025</p>
+				</div>
+			</div>
+			
+			<div class="border-t border-accent-700 mt-8 pt-8 text-center text-accent-400">
+				<p>&copy; 2025 Universidad Tomás Frías - Ingeniería Informática. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
 </Layout>

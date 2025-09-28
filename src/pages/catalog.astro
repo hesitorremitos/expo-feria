@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '@components/Button.jsx';
+import StyleCard from '@components/StyleCard.jsx';
+
+// Datos de los estilos disponibles
+const styles = [
+	{
+		id: 'que-paso-ayer',
+		title: '¿Qué pasó ayer?',
+		description: 'Revive las aventuras más descontroladas de la película "¿Qué Pasó Ayer?". Genera imágenes junto a tu celebridad favorita en una fiesta épica.',
+		images: [
+			'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+		]
+	}
+];
+
+---
+
+<Layout 
+	title="Catálogo AI - Universidad Tomás Frías" 
+	description="Explora nuestra colección de estilos AI para generar imágenes increíbles. Celebridades, películas, ubicaciones y filtros cinematográficos."
+>
+	<!-- Header del Catálogo -->
+	<section class="bg-primary-800 py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+				<span class="text-secondary-400">Catálogo</span> de Estilos AI
+			</h1>
+			<p class="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto text-primary-100">
+				Explora nuestra colección de estilos AI y selecciona el que más te guste. 
+				Cada estilo te llevará a la página de generación personalizada.
+			</p>
+		</div>
+	</section>
+
+	<!-- Galería de Imágenes AI -->
+	<section class="py-16 bg-accent-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+				{styles.map((style) => (
+					<StyleCard
+						id={style.id}
+						title={style.title}
+						description={style.description}
+						images={style.images}
+						client:load
+					/>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-accent-900 text-white py-12">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col md:flex-row justify-between items-center">
+				<div class="mb-4 md:mb-0">
+					<h3 class="text-lg font-semibold text-secondary-400">AI Image Catalog</h3>
+					<p class="text-accent-300">Universidad Tomás Frías - Ingeniería Informática</p>
+				</div>
+				<div class="flex gap-4">
+					<Button variant="ghost" size="md" href="/" className="text-accent-300 hover:text-white transition-colors">Inicio</Button>
+					<Button variant="ghost" size="md" href="/catalog" className="text-accent-300 hover:text-white transition-colors">Catálogo</Button>
+					<Button variant="ghost" size="md" href="/generate" className="text-accent-300 hover:text-white transition-colors">Generar</Button>
+				</div>
+			</div>
+			<div class="border-t border-accent-700 mt-8 pt-8 text-center text-accent-400">
+				<p>&copy; 2025 Universidad Tomás Frías - Ingeniería Informática. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+</Layout>
