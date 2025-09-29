@@ -47,11 +47,24 @@ export async function generateImage({
         const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
         console.log(`✅ Imagen generada en ${totalTime} segundos`);
 
-        // 5. Guardar imagen
+        // 5. Guardar imagen y metadatos
         const imageBase64 = response.data[0].b64_json;
         const imageBuffer = Buffer.from(imageBase64, 'base64');
         const fileName = generateFileName(styleId);
         const outputPath = await saveImage(imageBuffer, fileName);
+        
+        // 6. Guardar metadatos completos
+        await saveImageMetadata({
+            fileName,
+            personImage,
+            celebrityImage,
+            celebrityName,
+            extraDetails,
+            styleId,
+            prompt,
+            generationTime: totalTime,
+            createdAt: new Date().toISOString()
+        });
 
         return {
             success: true,
@@ -117,4 +130,91 @@ async function saveImage(imageBuffer, fileName) {
     
     console.log(`💾 Imagen guardada: ${outputPath}`);
     return outputPath;
+}
+
+/**
+ * Guarda los metadatos completos de la generación
+ */
+async function saveImageMetadata({
+    fileName,
+    personImage,
+    celebrityImage,
+    celebrityName,
+    extraDetails,
+    styleId,
+    prompt,
+    generationTime,
+    createdAt
+}) {
+    try {
+        // Crear directorio para metadatos
+        const metadataDir = path.join(process.cwd(), 'public', 'uploads', 'metadata');
+        if (!fs.existsSync(metadataDir)) {
+            fs.mkdirSync(metadataDir, { recursive: true });
+        }
+
+        // Generar nombres para las imágenes originales
+        const baseName = fileName.replace('.png', '');
+        const personFileName = `${baseName}_person_original.png`;
+        const celebrityFileName = `${baseName}_celebrity_original.png`;
+
+        // Guardar imágenes originales
+        const personPath = path.join(process.cwd(), 'public', 'uploads', personFileName);
+        const celebrityPath = path.join(process.cwd(), 'public', 'uploads', celebrityFileName);
+        
+        fs.writeFileSync(personPath, personImage);
+        fs.writeFileSync(celebrityPath, celebrityImage);
+
+        // Crear objeto de metadatos completo
+        const metadata = {
+            generatedImage: {
+                fileName,
+                url: `/uploads/${fileName}`,
+                createdAt,
+                generationTime,
+                size: fs.statSync(path.join(process.cwd(), 'public', 'uploads', fileName)).size
+            },
+            originalImages: {
+                person: {
+                    fileName: personFileName,
+                    url: `/uploads/${personFileName}`,
+                    size: personImage.length
+                },
+                celebrity: {
+                    fileName: celebrityFileName,
+                    url: `/uploads/${celebrityFileName}`,
+                    size: celebrityImage.length
+                }
+            },
+            generation: {
+                styleId,
+                celebrityName: celebrityName || 'No especificado',
+                extraDetails: extraDetails || 'No especificado',
+                prompt,
+                model: 'gpt-image-1',
+                quality: 'medium',
+                size: '1024x1024'
+            },
+            timestamp: Date.now(),
+            version: '1.0'
+        };
+
+        // Guardar archivo de metadatos JSON
+        const metadataPath = path.join(metadataDir, `${baseName}_metadata.json`);
+        fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+
+        console.log(`📋 Metadatos guardados: ${metadataPath}`);
+        console.log(`🖼️ Imágenes originales guardadas: ${personFileName}, ${celebrityFileName}`);
+
+        return {
+            metadataPath,
+            personPath,
+            celebrityPath
+        };
+
+    } catch (error) {
+        console.error('❌ Error guardando metadatos:', error);
+        // No fallar la generación por un error en metadatos
+        return null;
+    }
 }

@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.jsx';
+import GalleryComponent from '../components/GalleryEnhanced.jsx';
+import { getGeneratedImages, getGalleryStats } from '../lib/galleryService.js';
+
+// Obtener las imágenes y estadísticas
+const images = getGeneratedImages();
+const stats = getGalleryStats();
+---
+
+<Layout 
+	title="Galería de Imágenes AI | Universidad Tomás Frías" 
+	description="Explora todas las imágenes generadas con inteligencia artificial en nuestra galería. Revive los mejores momentos creados por la comunidad universitaria."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600 py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<div class="mb-6">
+				<Button 
+					variant="ghost" 
+					size="sm" 
+					href="/catalog"
+					className="text-primary-200 hover:text-white mb-4"
+				>
+					← Volver al Catálogo
+				</Button>
+			</div>
+			
+			<h1 class="text-4xl sm:text-6xl font-bold mb-6">
+				<span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary-400 to-yellow-300">
+					Galería AI
+				</span>
+			</h1>
+			
+			<p class="text-xl mb-8 max-w-3xl mx-auto text-primary-100">
+				Descubre todas las imágenes generadas por nuestra comunidad universitaria. 
+				Cada creación cuenta una historia única llena de creatividad y diversión.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<Button 
+					variant="secondary" 
+					size="lg" 
+					href="/generate/que-paso-ayer"
+					className="text-lg px-8 py-4"
+				>
+					🎬 Crear Nueva Imagen
+				</Button>
+				
+				<Button 
+					variant="outline" 
+					size="lg" 
+					href="#gallery"
+					className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary-800"
+				>
+					👀 Ver Galería
+				</Button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contenido principal -->
+	<section id="gallery" class="py-16 bg-gray-50 min-h-screen">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			
+			<!-- Título de sección -->
+			<div class="text-center mb-12">
+				<h2 class="text-3xl sm:text-4xl font-bold text-primary-800 mb-4">
+					Colección Completa
+				</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Explora, filtra y descarga las mejores creaciones de IA de nuestra comunidad
+				</p>
+			</div>
+
+			{/* Verificar si hay imágenes */}
+			{images.length === 0 ? (
+				<!-- Mensaje cuando no hay imágenes -->
+				<div class="text-center py-20">
+					<div class="text-8xl mb-6">🎨</div>
+					<h3 class="text-2xl font-bold text-gray-700 mb-4">
+						¡La galería está esperando tu primera creación!
+					</h3>
+					<p class="text-gray-600 mb-8 max-w-md mx-auto">
+						Genera tu primera imagen con IA y comenzará a aparecer aquí. 
+						Comparte tus momentos más divertidos con la comunidad.
+					</p>
+					<Button 
+						variant="primary" 
+						size="lg" 
+						href="/generate/que-paso-ayer"
+						className="text-lg px-8 py-4"
+					>
+						🚀 Generar Mi Primera Imagen
+					</Button>
+				</div>
+			) : (
+				<!-- Componente de galería -->
+				<GalleryComponent 
+					client:load 
+					images={images} 
+					stats={stats} 
+				/>
+			)}
+
+		</div>
+	</section>
+
+	<!-- Sección de llamada a la acción -->
+	<section class="bg-primary-800 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl font-bold text-white mb-4">
+				¿Listo para tu siguiente creación?
+			</h2>
+			<p class="text-xl text-primary-100 mb-8">
+				Experimenta con diferentes estilos y crea recuerdos únicos con IA
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<Button 
+					variant="secondary" 
+					size="lg" 
+					href="/generate/que-paso-ayer"
+					className="text-lg px-8 py-4"
+				>
+					🎬 ¿Qué Pasó Ayer?
+				</Button>
+				<Button 
+					variant="outline" 
+					size="lg" 
+					href="/catalog"
+					className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary-800"
+				>
+					📋 Ver Todos los Estilos
+				</Button>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Animaciones para la galería */
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	
+	.gallery-item {
+		animation: fadeInUp 0.6s ease-out forwards;
+	}
+	
+	/* Efectos de gradiente animado */
+	.bg-gradient-to-r {
+		background-size: 200% 200%;
+		animation: gradientShift 6s ease infinite;
+	}
+	
+	@keyframes gradientShift {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
+	/* Scroll suave */
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
