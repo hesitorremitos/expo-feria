@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import Button from './Button.jsx';
 import ImageUploader from './ImageUploader.jsx';
 import ResultModal from './ResultModal.jsx';
+import GenerationLoader from './GenerationLoader.jsx';
 
 const GenerateForm = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const GenerateForm = () => {
   });
   
   const [result, setResult] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   // Manejar subida de imágenes
   const handleImageUpload = useCallback((uploaderId, file) => {
@@ -43,7 +44,7 @@ const GenerateForm = () => {
       return;
     }
 
-    setIsSubmitting(true);
+    setIsGenerating(true);
 
     const submitData = new FormData();
     submitData.append('person_image', formData.personImage);
@@ -67,13 +68,19 @@ const GenerateForm = () => {
     } catch (error) {
       alert(`Error: ${error.message || 'Error desconocido'}`);
     } finally {
-      setIsSubmitting(false);
+      setIsGenerating(false);
     }
   };
 
   // Cerrar modal de resultado
   const handleCloseResult = useCallback(() => {
     setResult(null);
+  }, []);
+
+  // Manejar cancelación de generación
+  const handleCancelGeneration = useCallback(() => {
+    setIsGenerating(false);
+    // Aquí podrías agregar lógica para cancelar la request HTTP si es necesario
   }, []);
 
   // Manejar eventos globales de subida de imágenes
@@ -174,14 +181,30 @@ const GenerateForm = () => {
             type="submit"
             variant="primary"
             size="lg"
-            disabled={!isFormValid || isSubmitting}
+            disabled={!isFormValid || isGenerating}
             className="px-12 py-4 text-lg font-semibold"
           >
-            {isSubmitting ? '⏳ Procesando...' : '🎬 Generar Imagen'}
+            {isGenerating ? (
+              <>
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Generando...
+              </>
+            ) : (
+              '🎬 Generar imagen estilo "¿Qué Pasó Ayer?"'
+            )}
           </Button>
         </div>
 
       </form>
+
+      {/* Loader de generación */}
+      <GenerationLoader 
+        isVisible={isGenerating} 
+        onCancel={handleCancelGeneration}
+      />
 
       {/* Modal de resultado */}
       <ResultModal 
