@@ -26,7 +26,73 @@ const { title, description = "Catálogo de imágenes generadas por AI - Universi
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<!-- Header de navegación -->
+		<header class="bg-primary-800/95 backdrop-blur-sm border-b border-primary-700 sticky top-0 z-50">
+			<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between items-center h-16">
+					<!-- Logo/Brand -->
+					<a href="/" class="flex items-center space-x-3 text-white hover:text-secondary-400 transition-colors">
+						<div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+							<span class="text-primary-800 font-bold text-sm">AI</span>
+						</div>
+						<span class="font-semibold text-lg">Universidad Tomás Frías</span>
+					</a>
+					
+					<!-- Navigation Links -->
+					<div class="hidden md:flex items-center space-x-8">
+						<a href="/" class="text-primary-200 hover:text-white transition-colors font-medium">
+							Inicio
+						</a>
+						<a href="/catalog" class="text-primary-200 hover:text-white transition-colors font-medium">
+							Catálogo
+						</a>
+						<a href="/gallery" class="text-primary-200 hover:text-white transition-colors font-medium">
+							Galería
+						</a>
+					</div>
+					
+					<!-- Mobile menu button -->
+					<button id="mobile-menu-button" class="md:hidden text-primary-200 hover:text-white">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+				</div>
+				
+				<!-- Mobile menu -->
+				<div id="mobile-menu" class="hidden md:hidden pb-4">
+					<div class="flex flex-col space-y-3">
+						<a href="/" class="text-primary-200 hover:text-white transition-colors font-medium px-2 py-1">
+							Inicio
+						</a>
+						<a href="/catalog" class="text-primary-200 hover:text-white transition-colors font-medium px-2 py-1">
+							Catálogo
+						</a>
+						<a href="/gallery" class="text-primary-200 hover:text-white transition-colors font-medium px-2 py-1">
+							Galería
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+		
+		<!-- Mobile menu script -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const mobileMenuButton = document.getElementById('mobile-menu-button');
+				const mobileMenu = document.getElementById('mobile-menu');
+				
+				if (mobileMenuButton && mobileMenu) {
+					mobileMenuButton.addEventListener('click', function() {
+						mobileMenu.classList.toggle('hidden');
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
 
@@ -36,5 +102,11 @@ const { title, description = "Catálogo de imágenes generadas por AI - Universi
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+	
+	/* Asegurar que el contenido no se oculte bajo el header fijo */
+	main {
+		position: relative;
+		z-index: 1;
 	}
 </style>

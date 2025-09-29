@@ -1,7 +1,27 @@
 ---
+export const prerender = false; // Habilitar SSR para contenido dinámico
+
 import Layout from '../layouts/Layout.astro';
 import Button from '@components/Button.jsx';
 import StyleCard from '@components/StyleCard.jsx';
+import { getGeneratedImages } from '../lib/galleryService.js';
+
+// Obtener las imágenes generadas dinámicamente
+const allImages = await getGeneratedImages();
+
+// Obtener las 3 últimas imágenes para el carousel
+const latestImages = allImages
+  .slice(0, 3)
+  .map(img => img.imageUrl || img.url);
+
+// Si no hay suficientes imágenes, usar imágenes de placeholder
+const carouselImages = latestImages.length > 0 
+  ? latestImages
+  : [
+    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+  ];
 
 // Datos de los estilos disponibles
 const styles = [
@@ -9,11 +29,8 @@ const styles = [
 		id: 'que-paso-ayer',
 		title: '¿Qué pasó ayer?',
 		description: 'Revive las aventuras más descontroladas de la película "¿Qué Pasó Ayer?". Genera imágenes junto a tu celebridad favorita en una fiesta épica.',
-		images: [
-			'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-			'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-			'https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-		]
+		images: carouselImages,
+		totalGenerated: allImages.length
 	}
 ];
 
@@ -33,26 +50,6 @@ const styles = [
 				Explora nuestra colección de estilos AI y selecciona el que más te guste. 
 				Cada estilo te llevará a la página de generación personalizada.
 			</p>
-			
-			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<Button 
-					variant="secondary" 
-					size="lg" 
-					href="/generate/que-paso-ayer"
-					className="text-lg px-8 py-4"
-				>
-					🎬 Generar Ahora
-				</Button>
-				
-				<Button 
-					variant="outline" 
-					size="lg" 
-					href="/gallery"
-					className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary-800"
-				>
-					🖼️ Ver Galería
-				</Button>
-			</div>
 		</div>
 	</section>
 
@@ -66,6 +63,7 @@ const styles = [
 						title={style.title}
 						description={style.description}
 						images={style.images}
+						totalGenerated={style.totalGenerated}
 						client:load
 					/>
 				))}

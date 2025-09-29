@@ -83,6 +83,12 @@ const ImageModal = ({ image, isOpen, onClose }) => {
                   </div>
                 )}
                 <div className="bg-white p-3 rounded-lg">
+                  <strong className="text-gray-700">Calidad:</strong>
+                  <p className="text-gray-600 mt-1">
+                    {image.generation?.quality === 'high' ? '🎨 Alta' : '⚡ Media'}
+                  </p>
+                </div>
+                <div className="bg-white p-3 rounded-lg">
                   <strong className="text-gray-700">Creado:</strong>
                   <p className="text-gray-600 mt-1">{formatDate(image.createdAt)}</p>
                 </div>
@@ -238,49 +244,66 @@ const GalleryGrid = ({ images, onImageClick }) => {
       </div>
 
       {/* Grid de imágenes */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredImages.map((image, index) => (
-          <div 
-            key={image.fileName}
-            className="group cursor-pointer transform hover:scale-105 transition-all duration-200"
-            onClick={() => onImageClick(image)}
-          >
-            <div className="relative overflow-hidden rounded-xl shadow-lg">
-              <img 
-                src={image.imageUrl} 
-                alt={`Imagen generada - ${image.styleId}`}
-                className="w-full h-64 object-cover group-hover:brightness-110 transition-all duration-200"
-                loading="lazy"
-              />
-              
-              {/* Badges de información */}
-              <div className="absolute top-3 left-3 space-y-2">
-                <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium">
-                  {image.styleId}
-                </span>
-                {image.hasMetadata && (
-                  <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium block">
-                    Completa
+      {filteredImages.length === 0 ? (
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">📸</div>
+          <h3 className="text-2xl font-semibold text-gray-700 mb-2">No hay imágenes</h3>
+          <p className="text-gray-500">
+            {filter === 'all' 
+              ? 'Aún no se han generado imágenes. ¡Crea la primera!' 
+              : `No hay imágenes para el filtro "${filter}"`
+            }
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredImages.map((image) => (
+            <div 
+              key={image.id || image.fileName || `image-${Math.random()}`}
+              className="group cursor-pointer transform hover:scale-105 transition-all duration-200"
+              onClick={() => onImageClick(image)}
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <img 
+                  src={image.imageUrl} 
+                  alt={`Imagen generada - ${image.styleId}`}
+                  className="w-full h-64 object-cover group-hover:brightness-110 transition-all duration-200"
+                  loading="lazy"
+                  onError={(e) => {
+                    console.error('Error cargando imagen:', image.imageUrl);
+                    e.target.style.display = 'none';
+                  }}
+                />
+                
+                {/* Badges de información */}
+                <div className="absolute top-3 left-3 space-y-2">
+                  <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                    {image.styleId}
                   </span>
-                )}
-              </div>
-              
-              {/* Overlay con información */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-sm font-semibold truncate">{image.celebrityName || 'Sin celebridad'}</p>
-                  <p className="text-xs opacity-80">
-                    {new Date(image.createdAt).toLocaleDateString('es-ES')}
-                  </p>
-                  {image.generationTime && (
-                    <p className="text-xs opacity-80">⏱️ {image.generationTime}s</p>
+                  {image.hasMetadata && (
+                    <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium block">
+                      Completa
+                    </span>
                   )}
+                </div>
+                
+                {/* Overlay con información */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-sm font-semibold truncate">{image.celebrityName || 'Sin celebridad'}</p>
+                    <p className="text-xs opacity-80">
+                      {new Date(image.createdAt).toLocaleDateString('es-ES')}
+                    </p>
+                    {image.generationTime && (
+                      <p className="text-xs opacity-80">⏱️ {image.generationTime}s</p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Mensaje si no hay imágenes */}
       {filteredImages.length === 0 && (

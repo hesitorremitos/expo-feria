@@ -11,11 +11,23 @@ export const POST: APIRoute = async ({ request }) => {
         const celebrityImage = formData.get('celebrity_image') as File;
         const celebrityName = formData.get('celebrity_name') as string || '';
         const extraDetails = formData.get('extra_details') as string || '';
+        const quality = formData.get('quality') as string || 'medium'; // nuevo parámetro
 
         if (!personImage || !celebrityImage) {
             return new Response(JSON.stringify({
                 success: false,
                 error: 'Faltan imágenes'
+            }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+
+        // Validar calidad
+        if (quality !== 'medium' && quality !== 'high') {
+            return new Response(JSON.stringify({
+                success: false,
+                error: 'Calidad debe ser "medium" o "high"'
             }), {
                 status: 400,
                 headers: { 'Content-Type': 'application/json' }
@@ -32,7 +44,8 @@ export const POST: APIRoute = async ({ request }) => {
             celebrityImage: celebrityBuffer,
             celebrityName,
             extraDetails,
-            styleId: 'que-paso-ayer-fiesta'
+            styleId: 'que-paso-ayer-fiesta',
+            quality
         });
 
         if (result.success) {

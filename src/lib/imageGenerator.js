@@ -2,6 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import OpenAI, { toFile } from 'openai';
 
+// Configuración de rutas
+const DATA_DIR = path.resolve(process.cwd(), 'data', 'generated');
+
+// Asegurar que existe la carpeta data/generated
+if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
 // Cliente OpenAI configurado
 const client = new OpenAI({
     apiKey: "sk-7rXWvbPjWSQYAXJCCf8d3aD572864eEe924a8cC0C926E4De",
@@ -16,7 +24,8 @@ export async function generateImage({
     celebrityImage,
     celebrityName = '',
     extraDetails = '',
-    styleId = 'que-paso-ayer-fiesta'
+    styleId = 'que-paso-ayer-fiesta',
+    quality = 'medium' // 'medium' o 'high'
 }) {
     console.log('🎬 Iniciando generación de imagen...');
     const startTime = Date.now();
@@ -34,12 +43,12 @@ export async function generateImage({
         console.log('🖼️ Imágenes convertidas para OpenAI');
 
         // 3. Llamar a OpenAI
-        console.log('🚀 Enviando petición a OpenAI...');
+        console.log(`🚀 Enviando petición a OpenAI con calidad: ${quality}...`);
         const response = await client.images.edit({
             model: "gpt-image-1",
             image: images,
             prompt,
-            quality: "medium",
+            quality: quality, // Usar parámetro dinámico
             size: "1024x1024",
         });
 
@@ -63,12 +72,13 @@ export async function generateImage({
             styleId,
             prompt,
             generationTime: totalTime,
-            createdAt: new Date().toISOString()
+            createdAt: new Date().toISOString(),
+            quality
         });
 
         return {
             success: true,
-            imageUrl: `/uploads/${fileName}`,
+            imageUrl: `/api/images/${fileName}`,
             fileName,
             outputPath,
             generationTime: totalTime,
@@ -119,7 +129,7 @@ function generateFileName(styleId) {
  */
 async function saveImage(imageBuffer, fileName) {
     // Crear directorio si no existe
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
+    const uploadsDir = DATA_DIR;
     if (!fs.existsSync(uploadsDir)) {
         fs.mkdirSync(uploadsDir, { recursive: true });
     }
@@ -144,23 +154,18 @@ async function saveImageMetadata({
     styleId,
     prompt,
     generationTime,
-    createdAt
+    createdAt,
+    quality
 }) {
     try {
-        // Crear directorio para metadatos
-        const metadataDir = path.join(process.cwd(), 'public', 'uploads', 'metadata');
-        if (!fs.existsSync(metadataDir)) {
-            fs.mkdirSync(metadataDir, { recursive: true });
-        }
-
         // Generar nombres para las imágenes originales
         const baseName = fileName.replace('.png', '');
         const personFileName = `${baseName}_person_original.png`;
         const celebrityFileName = `${baseName}_celebrity_original.png`;
 
-        // Guardar imágenes originales
-        const personPath = path.join(process.cwd(), 'public', 'uploads', personFileName);
-        const celebrityPath = path.join(process.cwd(), 'public', 'uploads', celebrityFileName);
+        // Guardar imágenes originales en data/generated
+        const personPath = path.join(DATA_DIR, personFileName);
+        const celebrityPath = path.join(DATA_DIR, celebrityFileName);
         
         fs.writeFileSync(personPath, personImage);
         fs.writeFileSync(celebrityPath, celebrityImage);
@@ -169,20 +174,20 @@ async function saveImageMetadata({
         const metadata = {
             generatedImage: {
                 fileName,
-                url: `/uploads/${fileName}`,
+                url: `/api/images/${fileName}`,
                 createdAt,
                 generationTime,
-                size: fs.statSync(path.join(process.cwd(), 'public', 'uploads', fileName)).size
+                size: fs.statSync(path.join(DATA_DIR, fileName)).size
             },
             originalImages: {
                 person: {
                     fileName: personFileName,
-                    url: `/uploads/${personFileName}`,
+                    url: `/api/images/${personFileName}`,
                     size: personImage.length
                 },
                 celebrity: {
                     fileName: celebrityFileName,
-                    url: `/uploads/${celebrityFileName}`,
+                    url: `/api/images/${celebrityFileName}`,
                     size: celebrityImage.length
                 }
             },
@@ -192,21 +197,30 @@ async function saveImageMetadata({
                 extraDetails: extraDetails || 'No especificado',
                 prompt,
                 model: 'gpt-image-1',
-                quality: 'medium',
+                quality: quality,
                 size: '1024x1024'
             },
             timestamp: Date.now(),
             version: '1.0'
         };
 
-        // Guardar archivo de metadatos JSON
+        // Guardar metadatos en Content Collections (src/content/generated-images/)
+        const contentCollectionPath = path.join(process.cwd(), 'src', 'content', 'generated-images', `${baseName}.json`);
+        fs.writeFileSync(contentCollectionPath, JSON.stringify(metadata, null, 2));
+
+        // También mantener copia en data/generated/metadata para backward compatibility
+        const metadataDir = path.join(DATA_DIR, 'metadata');
+        if (!fs.existsSync(metadataDir)) {
+            fs.mkdirSync(metadataDir, { recursive: true });
+        }
         const metadataPath = path.join(metadataDir, `${baseName}_metadata.json`);
         fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
 
-        console.log(`📋 Metadatos guardados: ${metadataPath}`);
+        console.log(`📋 Metadatos guardados en Content Collections: ${contentCollectionPath}`);
         console.log(`🖼️ Imágenes originales guardadas: ${personFileName}, ${celebrityFileName}`);
 
         return {
+            contentCollectionPath,
             metadataPath,
             personPath,
             celebrityPath

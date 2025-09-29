@@ -9,7 +9,8 @@ const GenerateForm = () => {
     personImage: null,
     celebrityImage: null,
     celebrityName: '',
-    extraDetails: ''
+    extraDetails: '',
+    quality: 'medium' // nuevo campo
   });
   
   const [result, setResult] = useState(null);
@@ -51,6 +52,7 @@ const GenerateForm = () => {
     submitData.append('celebrity_image', formData.celebrityImage);
     submitData.append('celebrity_name', formData.celebrityName);
     submitData.append('extra_details', formData.extraDetails);
+    submitData.append('quality', formData.quality); // nuevo campo
 
     try {
       const response = await fetch('/api/generate', {
@@ -175,6 +177,76 @@ const GenerateForm = () => {
           </div>
         </div>
 
+        {/* Control de calidad */}
+        <div className="space-y-4">
+          <label className="block text-sm font-semibold text-primary-800 mb-4">
+            Calidad de generación
+          </label>
+          <div className="flex items-center justify-center space-x-8 bg-accent-50 p-6 rounded-xl">
+            <div className="flex items-center space-x-4">
+              {/* Opción Media */}
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="radio"
+                  name="quality"
+                  value="medium"
+                  checked={formData.quality === 'medium'}
+                  onChange={handleInputChange}
+                  className="sr-only"
+                />
+                <div className={`relative w-6 h-6 rounded-full border-2 transition-colors ${
+                  formData.quality === 'medium' 
+                    ? 'border-primary-600 bg-primary-600' 
+                    : 'border-accent-300'
+                }`}>
+                  {formData.quality === 'medium' && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                  )}
+                </div>
+                <div className="ml-3">
+                  <div className="font-medium text-primary-800">Media</div>
+                  <div className="text-xs text-accent-500">⚡ Más rápida • Menos tokens</div>
+                </div>
+              </label>
+
+              {/* Separador visual */}
+              <div className="h-8 w-px bg-accent-300"></div>
+
+              {/* Opción Alta */}
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="radio"
+                  name="quality"
+                  value="high"
+                  checked={formData.quality === 'high'}
+                  onChange={handleInputChange}
+                  className="sr-only"
+                />
+                <div className={`relative w-6 h-6 rounded-full border-2 transition-colors ${
+                  formData.quality === 'high' 
+                    ? 'border-secondary-500 bg-secondary-500' 
+                    : 'border-accent-300'
+                }`}>
+                  {formData.quality === 'high' && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                  )}
+                </div>
+                <div className="ml-3">
+                  <div className="font-medium text-primary-800">Alta</div>
+                  <div className="text-xs text-accent-500">🎨 Mejor calidad • Más tokens</div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <p className="text-xs text-accent-500 text-center">
+            La calidad alta produce mejores detalles pero toma más tiempo y recursos
+          </p>
+        </div>
+
         {/* Botón de envío */}
         <div className="flex justify-center pt-6">
           <Button
@@ -193,7 +265,7 @@ const GenerateForm = () => {
                 Generando...
               </>
             ) : (
-              '🎬 Generar imagen estilo "¿Qué Pasó Ayer?"'
+              'Generar imagen estilo "¿Qué Pasó Ayer?"'
             )}
           </Button>
         </div>
