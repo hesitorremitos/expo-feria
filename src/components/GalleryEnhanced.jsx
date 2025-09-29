@@ -95,26 +95,19 @@ const ImageModal = ({ image, isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Personalización */}
-            {image.hasMetadata && (image.celebrityName !== 'No especificado' || image.extraDetails !== 'No especificado') && (
+            {/* Detalles extra - Solo si el usuario los añadió */}
+            {image.hasMetadata && 
+             image.extraDetails && 
+             image.extraDetails !== 'No especificado' && 
+             image.extraDetails.trim() && 
+             image.extraDetails.trim().length > 0 && (
               <div className="mb-8">
                 <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
                   <span className="w-3 h-3 bg-purple-500 rounded-full mr-3"></span>
-                  Personalización
+                  Detalles Personalizados
                 </h4>
-                <div className="space-y-3">
-                  {image.celebrityName !== 'No especificado' && (
-                    <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                      <strong className="text-purple-800">Celebridad:</strong>
-                      <p className="text-purple-700 mt-1">{image.celebrityName}</p>
-                    </div>
-                  )}
-                  {image.extraDetails !== 'No especificado' && (
-                    <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                      <strong className="text-purple-800">Detalles extra:</strong>
-                      <p className="text-purple-700 mt-1">{image.extraDetails}</p>
-                    </div>
-                  )}
+                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                  <p className="text-purple-700 leading-relaxed">{image.extraDetails}</p>
                 </div>
               </div>
             )}
@@ -149,19 +142,6 @@ const ImageModal = ({ image, isOpen, onClose }) => {
               </div>
             )}
 
-            {/* Prompt usado */}
-            {image.prompt && (
-              <div className="mb-8">
-                <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <span className="w-3 h-3 bg-orange-500 rounded-full mr-3"></span>
-                  Prompt de IA
-                </h4>
-                <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-                  <p className="text-orange-800 text-sm italic leading-relaxed">"{image.prompt}"</p>
-                </div>
-              </div>
-            )}
-
             {/* Acciones */}
             <div className="space-y-3">
               <a 
@@ -169,7 +149,7 @@ const ImageModal = ({ image, isOpen, onClose }) => {
                 download={image.fileName}
                 className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-center block"
               >
-                📸 Descargar Imagen Generada
+                Descargar Imagen Generada
               </a>
               
               {image.originalImages && (
@@ -179,14 +159,14 @@ const ImageModal = ({ image, isOpen, onClose }) => {
                     download={image.originalImages.person.fileName}
                     className="bg-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-700 transition-colors text-center block"
                   >
-                    📥 Persona
+                    Descargar Persona
                   </a>
                   <a 
                     href={image.originalImages.celebrity.url} 
                     download={image.originalImages.celebrity.fileName}
                     className="bg-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-700 transition-colors text-center block"
                   >
-                    📥 Celebridad
+                    Descargar Celebridad
                   </a>
                 </div>
               )}
