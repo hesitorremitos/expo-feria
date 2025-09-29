@@ -1,0 +1,32 @@
+{
+  "generatedImage": {
+    "fileName": "que-paso-ayer-fiesta_1759118378986_dh7ldb.png",
+    "url": "/api/images/que-paso-ayer-fiesta_1759118378986_dh7ldb.png",
+    "createdAt": "2025-09-29T03:59:38.988Z",
+    "generationTime": "68.41",
+    "size": 2320210
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "que-paso-ayer-fiesta_1759118378986_dh7ldb_person_original.png",
+      "url": "/api/images/que-paso-ayer-fiesta_1759118378986_dh7ldb_person_original.png",
+      "size": 509721
+    },
+    "celebrity": {
+      "fileName": "que-paso-ayer-fiesta_1759118378986_dh7ldb_celebrity_original.png",
+      "url": "/api/images/que-paso-ayer-fiesta_1759118378986_dh7ldb_celebrity_original.png",
+      "size": 9558
+    }
+  },
+  "generation": {
+    "styleId": "que-paso-ayer-fiesta",
+    "celebrityName": "Nicolas Maduro",
+    "extraDetails": "Nicolas Maduro me da cerveza de la botella directamente a mi boca mientras se divierte",
+    "prompt": "Una foto estilo paparazzi espontánea y fotorrealista de mí y Nicolas Maduro en una fiesta universitaria. Están de pie en el sótano sucio de una fraternidad. Es una toma espontánea con mucho movimiento activo, interacción, etc. El destello de la cámara sobreexpone parcialmente la imagen, dándole una sensación caótica, como de tabloide. Nicolas Maduro me da cerveza de la botella directamente a mi boca mientras se divierte",
+    "model": "gpt-image-1",
+    "quality": "high",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759118378990,
+  "version": "1.0"
+}

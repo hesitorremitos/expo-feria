@@ -1,0 +1,32 @@
+{
+  "generatedImage": {
+    "fileName": "que-paso-ayer-fiesta_1759116990599_g6rx7m.png",
+    "url": "/api/images/que-paso-ayer-fiesta_1759116990599_g6rx7m.png",
+    "createdAt": "2025-09-29T03:36:30.600Z",
+    "generationTime": "70.56",
+    "size": 1981242
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "que-paso-ayer-fiesta_1759116990599_g6rx7m_person_original.png",
+      "url": "/api/images/que-paso-ayer-fiesta_1759116990599_g6rx7m_person_original.png",
+      "size": 1397578
+    },
+    "celebrity": {
+      "fileName": "que-paso-ayer-fiesta_1759116990599_g6rx7m_celebrity_original.png",
+      "url": "/api/images/que-paso-ayer-fiesta_1759116990599_g6rx7m_celebrity_original.png",
+      "size": 1271178
+    }
+  },
+  "generation": {
+    "styleId": "que-paso-ayer-fiesta",
+    "celebrityName": "Javier Milei",
+    "extraDetails": "Javier Milei me da de beber cerveza directamente a la boca",
+    "prompt": "Una foto estilo paparazzi espontánea y fotorrealista de mí y Javier Milei en una fiesta universitaria. Están de pie en el sótano sucio de una fraternidad. Es una toma espontánea con mucho movimiento activo, interacción, etc. El destello de la cámara sobreexpone parcialmente la imagen, dándole una sensación caótica, como de tabloide. Javier Milei me da de beber cerveza directamente a la boca",
+    "model": "gpt-image-1",
+    "quality": "high",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759116990605,
+  "version": "1.0"
+}
