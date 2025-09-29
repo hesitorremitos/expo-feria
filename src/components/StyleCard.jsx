@@ -16,8 +16,13 @@ const StyleCard = (props) => {
     if (onClick) {
       onClick({ id, title, description });
     } else {
-      // Navegar a la página de generación con el estilo seleccionado
-      window.location.href = `/generate?style=${id}&title=${encodeURIComponent(title)}`;
+      // Navegar directamente a la página específica del estilo en la carpeta generate
+      if (id === 'que-paso-ayer-fiesta' || id === 'que-paso-ayer') {
+        window.location.href = '/generate/que-paso-ayer';
+      } else {
+        // Para otros estilos, usar el id como página en generate
+        window.location.href = `/generate/${id}`;
+      }
     }
   };
 
