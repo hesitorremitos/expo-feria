@@ -1,0 +1,28 @@
+{
+  "generatedImage": {
+    "fileName": "buzz-cut-street_1759200061746_zplpm7.png",
+    "url": "/api/images/buzz-cut-street_1759200061746_zplpm7.png",
+    "createdAt": "2025-09-30T02:41:02.721Z",
+    "generationTime": "18.66",
+    "size": 1588170
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "buzz-cut-street_1759200061746_zplpm7_person_original.png",
+      "url": "/api/images/buzz-cut-street_1759200061746_zplpm7_person_original.png",
+      "size": 3339568
+    }
+  },
+  "generation": {
+    "styleId": "buzz-cut-street",
+    "type": "buzz-cut-street",
+    "theme": "street-style",
+    "extraDetails": "Buzz cut street style estándar",
+    "prompt": "Use the uploaded headshot to change the hairstyle into a fresh buzz cut, cinematic street style, neon lights in the background.\n\nThe transformation should include:\n- Clean, fresh buzz cut hairstyle (very short, uniform length)\n- Cinematic street photography aesthetic\n- Vibrant neon lights creating atmospheric background lighting\n- Urban nighttime setting with street ambiance\n- Professional portrait quality with dramatic lighting\n- High contrast and vivid colors from neon reflections",
+    "model": "nano-banana-oss",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759200062723,
+  "version": "1.0"
+}
