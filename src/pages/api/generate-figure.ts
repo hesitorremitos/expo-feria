@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request }) => {
                 prompt: result.prompt,
                 styleId: 'figure-collector',
                 images: {
-                    persona: personImage.name
+                    person: personImage.name
                 },
                 data: {
                     extraDetails: extraDetails || 'Figura coleccionable estándar',
