@@ -1,0 +1,29 @@
+{
+  "generatedImage": {
+    "fileName": "figure-collector_1759193800374_clh4re.png",
+    "url": "/api/images/figure-collector_1759193800374_clh4re.png",
+    "createdAt": "2025-09-30T00:56:41.338Z",
+    "generationTime": "15.88",
+    "size": 1234550
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "figure-collector_1759193800374_clh4re_person_original.png",
+      "url": "/api/images/figure-collector_1759193800374_clh4re_person_original.png",
+      "size": 14070
+    }
+  },
+  "generation": {
+    "styleId": "figure-collector",
+    "type": "figure-collector",
+    "theme": "collectible-figure",
+    "scale": "1/7",
+    "extraDetails": "Un papa Guerrero que combate el mal exorcisando con su cruz, en posicion listo para exosrsisar",
+    "prompt": "Create a 1/7 scale commercialized figure of the character in the image, in a realistic style and environment.\n\nPlace the figure on a computer desk, using a circular transparent acrylic base without any text.\n\nOn the computer screen, display the ZBrush modeling process of the figure.\n\nNext to the computer screen, place a BANDAI-style toy packaging box printed with the original artwork.\n\nThe scene should be photorealistic with proper lighting, shadows, and materials. The figure should have high-quality sculpting details, realistic paint job, and professional presentation like official collectible figures.\n\nAdditional customization: Un papa Guerrero que combate el mal exorcisando con su cruz, en posicion listo para exosrsisar",
+    "model": "nano-banana-oss",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759193801339,
+  "version": "1.0"
+}

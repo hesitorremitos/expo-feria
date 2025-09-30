@@ -1,0 +1,29 @@
+{
+  "generatedImage": {
+    "fileName": "figure-collector_1759193448851_fhorot.png",
+    "url": "/api/images/figure-collector_1759193448851_fhorot.png",
+    "createdAt": "2025-09-30T00:50:49.869Z",
+    "generationTime": "17.16",
+    "size": 1194538
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "figure-collector_1759193448851_fhorot_person_original.png",
+      "url": "/api/images/figure-collector_1759193448851_fhorot_person_original.png",
+      "size": 1271178
+    }
+  },
+  "generation": {
+    "styleId": "figure-collector",
+    "type": "figure-collector",
+    "theme": "collectible-figure",
+    "scale": "1/7",
+    "extraDetails": "Estilo pelicula \"Matrix\" con traje negro",
+    "prompt": "Create a 1/7 scale commercialized figure of the character in the image, in a realistic style and environment.\n\nPlace the figure on a computer desk, using a circular transparent acrylic base without any text.\n\nOn the computer screen, display the ZBrush modeling process of the figure.\n\nNext to the computer screen, place a BANDAI-style toy packaging box printed with the original artwork.\n\nThe scene should be photorealistic with proper lighting, shadows, and materials. The figure should have high-quality sculpting details, realistic paint job, and professional presentation like official collectible figures.\n\nAdditional customization: Estilo pelicula \"Matrix\" con traje negro",
+    "model": "nano-banana-oss",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759193449872,
+  "version": "1.0"
+}
