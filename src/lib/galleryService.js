@@ -161,10 +161,13 @@ export async function getGalleryStats() {
             }, 0) / images.length 
             : 0;
         
-        // Obtener el rango de fechas
-        const dates = images.map(img => new Date(img.createdAt));
-        const oldestDate = dates.length > 0 ? new Date(Math.min(...dates)) : null;
-        const newestDate = dates.length > 0 ? new Date(Math.max(...dates)) : null;
+        // Obtener el rango de fechas - filtrar fechas válidas
+        const validDates = images
+            .map(img => new Date(img.createdAt))
+            .filter(date => !isNaN(date.getTime()));
+        
+        const oldestDate = validDates.length > 0 ? new Date(Math.min(...validDates)) : null;
+        const newestDate = validDates.length > 0 ? new Date(Math.max(...validDates)) : null;
         
         const stats = {
             totalImages,

@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import BuzzCutForm from '../../components/BuzzCutForm.jsx';
+---
+
+<Layout 
+	title="Buzz Cut Street Style - Genera Transformaciones Urbanas | Universidad Tomás Frías" 
+	description="Transforma cualquier peinado en un fresh buzz cut con estilo urbano cinematic usando IA. Luces neon, ambiente nocturno y calidad profesional."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-slate-800 via-purple-800 to-pink-800 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-purple-200">✂️ Buzz Cut Street</span>
+				<span class="block text-pink-200 text-3xl sm:text-4xl mt-2">Urban Style</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-slate-100">
+				Transforma cualquier peinado en un fresh buzz cut con estilo urbano cinematic. 
+				Luces neon, ambiente nocturno y calidad profesional. ✨
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✂️ Fresh Buzz Cut</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🏙️ Urban Style</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🌈 Neon Lights</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎬 Cinematic</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-slate-50 to-purple-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-purple-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-slate-700 via-purple-700 to-pink-700 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">� Crear tu Buzz Cut Street Style</h2>
+					<p class="text-purple-100">Sube una foto y nosotros creamos la transformación urbana cinematic completa</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<BuzzCutForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Buzz Cut Street Style? ✂️</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos transformaciones urbanas cinematográficas con corte buzz cut profesional
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<!-- Proceso 1 -->
+				<div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-200">
+					<div class="text-4xl mb-4">✂️</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Fresh Buzz Cut</h3>
+					<p class="text-sm text-accent-600">La IA transforma el peinado en un buzz cut uniforme y moderno</p>
+				</div>
+
+				<!-- Proceso 2 -->
+				<div class="text-center p-6 bg-purple-50 rounded-xl border border-purple-200">
+					<div class="text-4xl mb-4">🏙️</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Ambiente Urban</h3>
+					<p class="text-sm text-accent-600">Entorno nocturno urbano con luces neon atmosféricas</p>
+				</div>
+
+				<!-- Proceso 3 -->
+				<div class="text-center p-6 bg-pink-50 rounded-xl border border-pink-200">
+					<div class="text-4xl mb-4">🎬</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Calidad Cinematic</h3>
+					<p class="text-sm text-accent-600">Iluminación dramática y contraste profesional de cine</p>
+				</div>
+
+			</div>
+
+			<!-- Consejos -->
+			<div class="bg-gradient-to-r from-slate-50 to-purple-50 rounded-2xl p-8">
+				<h3 class="text-2xl font-bold text-center text-gray-800 mb-6">💡 Consejos para mejores resultados</h3>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+					<div class="flex items-start space-x-3">
+						<span class="text-slate-500 text-xl">📸</span>
+						<p><strong>Fotos claras:</strong> Usa imágenes bien iluminadas y de buena calidad</p>
+					</div>
+					<div class="flex items-start space-x-3">
+						<span class="text-purple-500 text-xl">👤</span>
+						<p><strong>Ángulo frontal:</strong> Las fotos frontales muestran mejor el buzz cut</p>
+					</div>
+					<div class="flex items-start space-x-3">
+						<span class="text-pink-500 text-xl">🌈</span>
+						<p><strong>Colores neon:</strong> Especifica colores como "neon azul y rosa"</p>
+					</div>
+					<div class="flex items-start space-x-3">
+						<span class="text-slate-600 text-xl">🎯</span>
+						<p><strong>Ambiente urbano:</strong> Añade detalles como "nocturno" o "street style"</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action -->
+	<section class="py-16 bg-gradient-to-r from-slate-700 to-purple-700">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para tu buzz cut street style? ✂️</h2>
+			<p class="text-xl mb-8 text-purple-100">
+				¡Únete a la revolución urban y transforma tu look con estilo cinematic!
+			</p>
+			<Button 
+				className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+				onClick="document.querySelector('form').scrollIntoView({ behavior: 'smooth' })"
+			>
+				✂️ Crear Mi Buzz Cut Ahora
+			</Button>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.shadow-elegant {
+		box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	}
+	
+	.bg-gradient-to-br {
+		background-size: 200% 200%;
+		animation: gradientShift 6s ease infinite;
+	}
+
+	@keyframes gradientShift {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	/* Animaciones para iconos */
+	.text-4xl {
+		animation: float 3s ease-in-out infinite;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+
+	/* Hover effects para las características */
+	.bg-slate-50:hover,
+	.bg-purple-50:hover,
+	.bg-pink-50:hover {
+		transform: translateY(-4px);
+		transition: transform 0.3s ease;
+		box-shadow: 0 10px 25px -3px rgba(147, 51, 234, 0.1);
+	}
+</style>

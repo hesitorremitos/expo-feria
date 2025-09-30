@@ -37,7 +37,7 @@ export const STYLE_CONFIGS = {
     name: 'Figure Collector',
     emoji: '🏆',
     description: 'Figura coleccionable escala 1/7',
-    requiredImages: ['persona'],
+    requiredImages: ['person'],
     hasCelebrity: false,
     displayFields: {
       title: (data) => 'Figura Coleccionable 1/7',
@@ -45,7 +45,23 @@ export const STYLE_CONFIGS = {
       type: 'Figure Collector'
     },
     downloads: [
-      { key: 'persona', label: 'Descargar Original' }
+      { key: 'person', label: 'Descargar Original' }
+    ]
+  },
+
+  'buzz-cut-street': {
+    name: 'Buzz Cut Street',
+    emoji: '✂️',
+    description: 'Fresh buzz cut con estilo urbano cinematic',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Buzz Cut Street Style',
+      subtitle: (data) => data.extraDetails || 'Estilo urbano cinematic',
+      type: 'Street Style Transformation'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
     ]
   }
 };

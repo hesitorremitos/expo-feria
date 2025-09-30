@@ -34,6 +34,9 @@ const chibiImages = allImages.filter(img =>
 const figureImages = allImages.filter(img => 
 	img.generation?.styleId === 'figure-collector'
 );
+const buzzCutImages = allImages.filter(img => 
+	img.generation?.styleId === 'buzz-cut-street'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -65,6 +68,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: figureImages.length
+	},
+	{
+		id: 'buzz-cut',
+		title: '✂️ Buzz Cut Street',
+		description: "Transforma cualquier peinado en un fresh buzz cut con estilo urbano cinematic. Luces neon, ambiente nocturno y calidad cinematográfica profesional.",
+		images: buzzCutImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: buzzCutImages.length
 	}
 ];
 
