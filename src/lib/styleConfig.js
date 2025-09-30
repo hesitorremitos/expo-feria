@@ -31,6 +31,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'figure-collector': {
+    name: 'Figure Collector',
+    emoji: '🏆',
+    description: 'Figura coleccionable escala 1/7',
+    requiredImages: ['persona'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Figura Coleccionable 1/7',
+      subtitle: (data) => data.scale || 'Escala 1/7',
+      type: 'Figure Collector'
+    },
+    downloads: [
+      { key: 'persona', label: 'Descargar Original' }
+    ]
   }
 };
 
