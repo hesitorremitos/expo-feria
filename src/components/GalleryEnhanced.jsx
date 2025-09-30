@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { normalizeImageData } from '../lib/styleConfig.js';
+import OriginalImagesGrid from './OriginalImagesGrid.jsx';
+import DownloadButtons from './DownloadButtons.jsx';
 
 const ImageModal = ({ image, isOpen, onClose }) => {
   if (!isOpen || !image) return null;
+
+  // Normalizar datos de imagen usando la configuración del estilo
+  const normalizedImage = normalizeImageData(image);
 
   const formatFileSize = (bytes) => {
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
@@ -112,35 +118,11 @@ const ImageModal = ({ image, isOpen, onClose }) => {
               </div>
             )}
 
-            {/* Imágenes originales */}
-            {image.originalImages && (
-              <div className="mb-8">
-                <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-                  Imágenes Originales
-                </h4>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-3 rounded-lg border">
-                    <strong className="text-gray-700 block mb-2">Persona</strong>
-                    <img 
-                      src={image.originalImages.person.url} 
-                      alt="Imagen original de la persona"
-                      className="w-full h-32 object-cover rounded mb-2"
-                    />
-                    <p className="text-xs text-gray-500">{formatFileSize(image.originalImages.person.size)}</p>
-                  </div>
-                  <div className="bg-white p-3 rounded-lg border">
-                    <strong className="text-gray-700 block mb-2">Celebridad</strong>
-                    <img 
-                      src={image.originalImages.celebrity.url} 
-                      alt="Imagen original de la celebridad"
-                      className="w-full h-32 object-cover rounded mb-2"
-                    />
-                    <p className="text-xs text-gray-500">{formatFileSize(image.originalImages.celebrity.size)}</p>
-                  </div>
-                </div>
-              </div>
-            )}
+            {/* Imágenes originales - Componente genérico */}
+            <OriginalImagesGrid 
+              image={normalizedImage} 
+              formatFileSize={formatFileSize} 
+            />
 
             {/* Acciones */}
             <div className="space-y-3">
@@ -152,24 +134,7 @@ const ImageModal = ({ image, isOpen, onClose }) => {
                 Descargar Imagen Generada
               </a>
               
-              {image.originalImages && (
-                <div className="grid grid-cols-2 gap-2">
-                  <a 
-                    href={image.originalImages.person.url} 
-                    download={image.originalImages.person.fileName}
-                    className="bg-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-700 transition-colors text-center block"
-                  >
-                    Descargar Persona
-                  </a>
-                  <a 
-                    href={image.originalImages.celebrity.url} 
-                    download={image.originalImages.celebrity.fileName}
-                    className="bg-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-700 transition-colors text-center block"
-                  >
-                    Descargar Celebridad
-                  </a>
-                </div>
-              )}
+              <DownloadButtons image={normalizedImage} />
             </div>
 
           </div>
@@ -270,7 +235,9 @@ const GalleryGrid = ({ images, onImageClick }) => {
                 {/* Overlay con información */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-sm font-semibold truncate">{image.celebrityName || 'Sin celebridad'}</p>
+                    <p className="text-sm font-semibold truncate">
+                      {normalizeImageData(image).displayTitle}
+                    </p>
                     <p className="text-xs opacity-80">
                       {new Date(image.createdAt).toLocaleDateString('es-ES')}
                     </p>

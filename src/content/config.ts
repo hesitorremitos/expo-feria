@@ -24,18 +24,20 @@ const generatedImages = defineCollection({
         fileName: z.string(),
         url: z.string(), // Cambiado de z.string().url() a z.string()
         size: z.number()
-      })
+      }).optional() // Opcional para estilos como chibi-sticker
     }),
     
     // Parámetros de generación
     generation: z.object({
       styleId: z.string(),
-      celebrityName: z.string(),
+      celebrityName: z.string().optional(), // Opcional para estilos como chibi-sticker
       extraDetails: z.string(),
       prompt: z.string(),
       model: z.string(),
       quality: z.string(),
-      size: z.string()
+      size: z.string(),
+      type: z.string().optional(), // Campo adicional para tipo específico
+      theme: z.string().optional() // Campo adicional para tema (ej: kawaii)
     }),
     
     // Metadata adicional
