@@ -1,0 +1,32 @@
+{
+  "generatedImage": {
+    "fileName": "que-paso-ayer-fiesta_1759189849003_cwvx94.png",
+    "url": "/api/images/que-paso-ayer-fiesta_1759189849003_cwvx94.png",
+    "createdAt": "2025-09-29T23:50:49.005Z",
+    "generationTime": "36.74",
+    "size": 1683847
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "que-paso-ayer-fiesta_1759189849003_cwvx94_person_original.png",
+      "url": "/api/images/que-paso-ayer-fiesta_1759189849003_cwvx94_person_original.png",
+      "size": 9558
+    },
+    "celebrity": {
+      "fileName": "que-paso-ayer-fiesta_1759189849003_cwvx94_celebrity_original.png",
+      "url": "/api/images/que-paso-ayer-fiesta_1759189849003_cwvx94_celebrity_original.png",
+      "size": 160412
+    }
+  },
+  "generation": {
+    "styleId": "que-paso-ayer-fiesta",
+    "celebrityName": "No especificado",
+    "extraDetails": "No especificado",
+    "prompt": "Una foto estilo paparazzi espontánea y fotorrealista de mí y una celebridad en una fiesta universitaria. Están de pie en el sótano sucio de una fraternidad. Es una toma espontánea con mucho movimiento activo, interacción, etc. El destello de la cámara sobreexpone parcialmente la imagen, dándole una sensación caótica, como de tabloide.",
+    "model": "gpt-image-1",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759189849008,
+  "version": "1.0"
+}

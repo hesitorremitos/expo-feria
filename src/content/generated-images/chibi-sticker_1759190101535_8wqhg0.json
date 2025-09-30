@@ -1,0 +1,28 @@
+{
+  "generatedImage": {
+    "fileName": "chibi-sticker_1759190101535_8wqhg0.png",
+    "url": "/api/images/chibi-sticker_1759190101535_8wqhg0.png",
+    "createdAt": "2025-09-29T23:55:01.537Z",
+    "generationTime": "29.95",
+    "size": 1412508
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "chibi-sticker_1759190101535_8wqhg0_person_original.png",
+      "url": "/api/images/chibi-sticker_1759190101535_8wqhg0_person_original.png",
+      "size": 1397578
+    }
+  },
+  "generation": {
+    "styleId": "chibi-sticker",
+    "type": "chibi-sticker",
+    "theme": "kawaii",
+    "extraDetails": "Estilo chibi por defecto",
+    "prompt": "Please create a set of 9 Chibi stickers featuring the character in the reference image, arranged in a 3x3 grid.\nDesign requirements:\n- Transparent background.\n- 1:1 square aspect ratio.\n- Consistent Chibi Ghibli cartoon style with vibrant colors.\n- Each sticker must have a unique action, expression, and theme, reflecting diverse emotions like \"sassy, mischievous, cute, frantic\" (e.g., rolling eyes, laughing hysterically on the floor, soul leaving body, petrified, throwing money, foodie mode, social anxiety attack). Incorporate elements related to office workers and internet memes.\n- Each character depiction must be complete, with no missing parts.\n- Each sticker must have a uniform white outline, giving it a sticker-like appearance.\n- No extraneous or detached elements in the image.\n- Strictly no text, or ensure any text is 100% accurate (no text preferred).",
+    "model": "gpt-image-1",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759190101539,
+  "version": "1.0"
+}

@@ -1,0 +1,28 @@
+{
+  "generatedImage": {
+    "fileName": "chibi-sticker_1759189083449_ixvm1c.png",
+    "url": "/api/images/chibi-sticker_1759189083449_ixvm1c.png",
+    "createdAt": "2025-09-29T23:38:03.452Z",
+    "generationTime": "39.61",
+    "size": 1187073
+  },
+  "originalImages": {
+    "person": {
+      "fileName": "chibi-sticker_1759189083449_ixvm1c_person_original.png",
+      "url": "/api/images/chibi-sticker_1759189083449_ixvm1c_person_original.png",
+      "size": 1397578
+    }
+  },
+  "generation": {
+    "styleId": "chibi-sticker",
+    "type": "chibi-sticker",
+    "theme": "kawaii",
+    "extraDetails": "Estilo chibi por defecto",
+    "prompt": "Transform this photo into an adorable chibi-style sticker illustration. Create a cute, kawaii character with:\n- Big expressive eyes and small body proportions (typical chibi style)\n- Keep the person's recognizable facial features but make them super cute\n- Minimalist flat design with soft, pastel colors\n- Clean white border around the sticker\n- Circular or rounded background in a solid pastel color\n- The character should slightly break out of the frame for a playful effect\n- Transparent background outside the main sticker area\n- Overall kawaii aesthetic that's perfect for social media and messaging",
+    "model": "gpt-image-1",
+    "quality": "medium",
+    "size": "1024x1024"
+  },
+  "timestamp": 1759189083455,
+  "version": "1.0"
+}
