@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import https from 'https';
+import http from 'http';
 import OpenAI, { toFile } from 'openai';
 
 // Configuración de rutas
@@ -39,7 +41,7 @@ export async function generateFigureCollector({
         // 3. Llamar a OpenAI con configuración específica para figura
         console.log(`🚀 Enviando petición figura coleccionable a OpenAI (calidad: ${quality})...`);
         const response = await client.images.edit({
-            model: "gpt-image-1",
+            model: "nano-banana-oss",
             image: image,
             prompt,
             quality: quality,
@@ -50,11 +52,14 @@ export async function generateFigureCollector({
         const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
         console.log(`✅ Figura coleccionable generada en ${totalTime} segundos`);
 
-        // 5. Guardar imagen y metadatos
-        const imageBase64 = response.data[0].b64_json;
-        const imageBuffer = Buffer.from(imageBase64, 'base64');
+        // 5. Descargar imagen desde URL temporal y guardar
+        const imageUrl = response.data[0].url;
+        console.log('🔗 URL temporal recibida:', imageUrl);
+        
         const fileName = generateFigureFileName();
+        const imageBuffer = await downloadImageFromUrl(imageUrl);
         const outputPath = await saveImage(imageBuffer, fileName);
+        console.log('💾 Imagen descargada y guardada:', outputPath);
         
         // 6. Guardar metadatos completos
         await saveFigureMetadata({
@@ -88,6 +93,41 @@ export async function generateFigureCollector({
             styleId: 'figure-collector'
         };
     }
+}
+
+/**
+ * Descarga una imagen desde una URL temporal
+ */
+async function downloadImageFromUrl(url) {
+    return new Promise((resolve, reject) => {
+        console.log('🌐 Descargando imagen desde:', url);
+        
+        // Determinar protocolo (http o https)
+        const protocol = url.startsWith('https') ? https : http;
+        
+        protocol.get(url, (response) => {
+            if (response.statusCode !== 200) {
+                reject(new Error(`Error HTTP: ${response.statusCode}`));
+                return;
+            }
+
+            const chunks = [];
+            
+            response.on('data', (chunk) => {
+                chunks.push(chunk);
+            });
+            
+            response.on('end', () => {
+                const buffer = Buffer.concat(chunks);
+                console.log(`✅ Imagen descargada: ${buffer.length} bytes`);
+                resolve(buffer);
+            });
+            
+        }).on('error', (error) => {
+            console.error('❌ Error descargando imagen:', error);
+            reject(error);
+        });
+    });
 }
 
 /**
@@ -177,7 +217,7 @@ async function saveFigureMetadata({
                 scale: '1/7',
                 extraDetails: extraDetails || 'Figura coleccionable estándar',
                 prompt,
-                model: 'gpt-image-1',
+                model: 'nano-banana-oss',
                 quality: quality,
                 size: '1024x1024'
             },

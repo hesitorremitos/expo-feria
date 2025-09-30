@@ -37,12 +37,14 @@ const FigureCollectorForm = () => {
   // Enviar formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     
     if (!isFormValid) {
       alert('Por favor sube tu foto');
       return;
     }
 
+    console.log('🚀 Iniciando generación de Figure Collector...');
     setIsGenerating(true);
 
     const submitData = new FormData();
@@ -51,27 +53,52 @@ const FigureCollectorForm = () => {
     submitData.append('quality', formData.quality);
 
     try {
+      console.log('📡 Enviando petición a /api/generate-figure...');
       const response = await fetch('/api/generate-figure', {
         method: 'POST',
         body: submitData
       });
 
+      console.log('📥 Respuesta recibida:', response.status);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
       const result = await response.json();
+      console.log('📋 Resultado procesado:', result);
 
       if (result.success) {
-        setResult(result);
+        console.log('✅ Generación exitosa, mostrando modal...');
+        console.log('📊 Datos del resultado:', JSON.stringify(result, null, 2));
+        // Usar setTimeout para asegurar que el estado se actualice correctamente
+        setTimeout(() => {
+          setResult(result);
+          console.log('🎭 Modal debería estar visible ahora');
+        }, 100);
       } else {
+        console.error('❌ Error en generación:', result.error);
         alert(`Error: ${result.error}`);
       }
     } catch (error) {
-      alert(`Error: ${error.message || 'Error desconocido'}`);
+      console.error('💥 Error en petición:', error);
+      console.error('💥 Stack trace:', error.stack);
+      
+      // Evitar any navigation or reload on error
+      try {
+        alert(`Error: ${error.message || 'Error desconocido'}`);
+      } catch (alertError) {
+        console.error('Error mostrando alerta:', alertError);
+      }
     } finally {
+      console.log('🏁 Finalizando proceso de generación...');
       setIsGenerating(false);
     }
   };
 
   // Cerrar modal de resultado
   const handleCloseResult = useCallback(() => {
+    console.log('🔴 FigureCollectorForm: Closing result modal');
     setResult(null);
   }, []);
 
@@ -104,10 +131,33 @@ const FigureCollectorForm = () => {
     };
   }, [handleImageUpload]);
 
+  // Capturar errores no manejados que puedan causar recargas
+  React.useEffect(() => {
+    const handleError = (event) => {
+      console.error('🚨 Error no manejado capturado:', event.error);
+      event.preventDefault();
+      return false;
+    };
+
+    const handleUnhandledRejection = (event) => {
+      console.error('🚨 Promise rejection no manejada:', event.reason);
+      event.preventDefault();
+      return false;
+    };
+
+    window.addEventListener('error', handleError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, []);
+
   return (
     <div className="p-8">
       
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="space-y-8">
         
         {/* Control de calidad */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
@@ -186,7 +236,12 @@ const FigureCollectorForm = () => {
         {/* Botón de envío */}
         <div className="text-center space-y-4">
           <Button
-            type="submit"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleSubmit(e);
+            }}
             disabled={!isFormValid || isGenerating}
             className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:transform-none disabled:shadow-lg"
           >
@@ -213,7 +268,7 @@ const FigureCollectorForm = () => {
           </div>
         </div>
 
-      </form>
+      </div>
 
       {/* Loader de generación */}
       <GenerationLoader 
