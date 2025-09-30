@@ -1,6 +1,6 @@
-// Endpoint específico para el estilo "¿Qué Pasó Ayer?" - Requiere foto de persona + foto de celebridad
+// Endpoint específico para generar Pack de Chibi Stickers - Solo requiere foto de persona
 import type { APIRoute } from 'astro';
-import { generateImage } from '../../lib/imageGenerator.js';
+import { generateChibiSticker } from '../../lib/chibiGenerator.js';
 
 export const prerender = false;
 
@@ -8,16 +8,14 @@ export const POST: APIRoute = async ({ request }) => {
     try {
         const formData = await request.formData();
         
-        const personImage = formData.get('person_image') as File;
-        const celebrityImage = formData.get('celebrity_image') as File;
-        const celebrityName = formData.get('celebrity_name') as string || '';
-        const extraDetails = formData.get('extra_details') as string || '';
+        const personImage = formData.get('personImage') as File;
+        const extraDetails = formData.get('extraDetails') as string || '';
         const quality = formData.get('quality') as string || 'medium';
 
-        if (!personImage || !celebrityImage) {
+        if (!personImage) {
             return new Response(JSON.stringify({
                 success: false,
-                error: 'Faltan imágenes'
+                error: 'Falta la foto de persona'
             }), {
                 status: 400,
                 headers: { 'Content-Type': 'application/json' }
@@ -35,36 +33,33 @@ export const POST: APIRoute = async ({ request }) => {
             });
         }
 
-        // Convertir archivos a Buffer para OpenAI
+        // Convertir archivo a Buffer para OpenAI
         const personBuffer = Buffer.from(await personImage.arrayBuffer());
-        const celebrityBuffer = Buffer.from(await celebrityImage.arrayBuffer());
 
-        // Generar imagen usando el servicio
-        const result = await generateImage({
+        // Generar pack de chibi stickers
+        console.log('🎨 Procesando solicitud de pack chibi stickers...');
+        const result = await generateChibiSticker({
             personImage: personBuffer,
-            celebrityImage: celebrityBuffer,
-            celebrityName,
             extraDetails,
-            styleId: 'que-paso-ayer-fiesta',
             quality
         });
 
         if (result.success) {
             return new Response(JSON.stringify({
                 success: true,
-                message: '¡Imagen generada exitosamente!',
+                message: '¡Pack de chibi stickers generado exitosamente!',
                 imageUrl: result.imageUrl,
                 fileName: result.fileName,
                 generationTime: result.generationTime,
                 prompt: result.prompt,
-                // Mantener info original para compatibilidad
+                styleId: 'chibi-sticker',
                 images: {
-                    persona: personImage.name,
-                    celebridad: celebrityImage.name
+                    persona: personImage.name
                 },
                 data: {
-                    celebrityName: celebrityName || 'No especificado',
-                    extraDetails: extraDetails || 'No especificado'
+                    extraDetails: extraDetails || 'Estilo chibi por defecto',
+                    type: '9-pack chibi stickers',
+                    theme: 'kawaii'
                 }
             }), {
                 status: 200,

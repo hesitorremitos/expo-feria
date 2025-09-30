@@ -23,14 +23,34 @@ const carouselImages = latestImages.length > 0
     'https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
   ];
 
+// Filtrar imágenes por estilo
+const quepasoImages = allImages.filter(img => 
+	img.generation?.styleId === 'que-paso-ayer-fiesta' || 
+	!img.generation?.styleId // Para compatibilidad con imágenes antiguas
+);
+const chibiImages = allImages.filter(img => 
+	img.generation?.styleId === 'chibi-sticker'
+);
+
 // Datos de los estilos disponibles
 const styles = [
 	{
 		id: 'que-paso-ayer',
 		title: '¿Qué pasó ayer?',
 		description: 'Revive las aventuras más descontroladas de la película "¿Qué Pasó Ayer?". Genera imágenes junto a tu celebridad favorita en una fiesta épica.',
-		images: carouselImages,
-		totalGenerated: allImages.length
+		images: quepasoImages.slice(0, 3).map(img => img.imageUrl || img.url) || carouselImages,
+		totalGenerated: quepasoImages.length
+	},
+	{
+		id: 'chibi-sticker',
+		title: '✨ Chibi Sticker',
+		description: "Convierte tu foto en 9 adorables stickers chibi kawaii con diferentes expresiones usando IA. El pack perfecto para cualquier emoción.",
+		images: chibiImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: chibiImages.length
 	}
 ];
 
