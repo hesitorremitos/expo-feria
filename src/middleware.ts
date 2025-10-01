@@ -7,6 +7,7 @@ const protectedRoutes = [
 	'/generate/que-paso-ayer',
 	'/generate/buzz-cut',
 	'/generate/film-noir',
+	'/generate/editorial-portrait',
 ];
 
 // Rutas públicas que no requieren autenticación

@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import EditorialPortraitForm from '../../components/EditorialPortraitForm';
+---
+
+<Layout 
+	title="Editorial Portrait B&W - Genera Retratos Fine Art | Universidad Tomás Frías" 
+	description="Transforma tu fotografía en un retrato editorial de alta resolución en blanco y negro con gradiente suave y film grain. Estética fine art photography."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-gray-800 via-slate-700 to-zinc-800 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-gray-200">📸 Editorial Portrait</span>
+				<span class="block text-slate-300 text-3xl sm:text-4xl mt-2">Black & White</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-gray-100">
+				Transforma tu fotografía en un retrato editorial de alta resolución en blanco y negro. 
+				Gradiente suave, film grain delicado y estética fine art photography. ✨
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">📸 Alta Resolución</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎞️ Film Grain</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🌫️ Gradiente Suave</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Fine Art</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-gray-50 to-slate-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-gray-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-gray-700 via-slate-700 to-zinc-700 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">🎨 Crear tu Retrato Editorial B&W</h2>
+					<p class="text-gray-100">Sube tu foto y nosotros creamos el retrato fine art photography completo</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<EditorialPortraitForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Editorial Portrait? 📸</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos retratos editoriales profesionales con estética fine art photography
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<!-- Proceso 1 -->
+				<div class="text-center p-6 bg-gray-50 rounded-xl border border-gray-200">
+					<div class="text-4xl mb-4">🎞️</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Film Grain Delicado</h3>
+					<p class="text-sm text-accent-600">Textura analógica sutil que añade carácter atemporal</p>
+				</div>
+
+				<!-- Proceso 2 -->
+				<div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-200">
+					<div class="text-4xl mb-4">🌫️</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Gradiente Suave</h3>
+					<p class="text-sm text-accent-600">Fondo con transición de gris medio a blanco casi puro</p>
+				</div>
+
+				<!-- Proceso 3 -->
+				<div class="text-center p-6 bg-zinc-50 rounded-xl border border-zinc-200">
+					<div class="text-4xl mb-4">✨</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Alta Resolución</h3>
+					<p class="text-sm text-accent-600">Detalle excepcional ideal para impresión editorial</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-gray-50 to-slate-100 rounded-2xl p-8 border border-gray-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Editorial B&W 🎨</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>retrato editorial en blanco y negro</strong> es un género que combina la precisión técnica 
+						de la fotografía de moda con la profundidad emocional del fine art. Este estilo se caracteriza 
+						por su minimalismo elegante y su capacidad para capturar la esencia del sujeto.
+					</p>
+					<p>
+						Nuestra transformación incluye un <strong>gradiente suave</strong> que transita del gris medio al blanco 
+						casi puro, creando un espacio negativo que permite que el retrato respire. El <strong>film grain delicado</strong> 
+						añade una cualidad táctil y nostálgica, evocando la fotografía analógica clásica.
+					</p>
+					<p>
+						La iluminación se trabaja de manera direccional y suave, acariciando los contornos faciales. 
+						Parte del rostro emerge sutilmente de las sombras, creando un juego de luz que es tanto 
+						<em>misterioso como íntimo</em>. El resultado es una imagen atemporal y profundamente hermosa.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-gray-800 to-slate-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para crear tu retrato editorial? 📸</h2>
+			<p class="text-xl mb-8 text-gray-300">
+				Sube tu foto y obtén un retrato fine art en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-gray-800 hover:bg-gray-100"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-gray-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+			<p class="text-sm">
+				⚡ Cada retrato editorial es único y procesado con tecnología de IA avanzada
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>

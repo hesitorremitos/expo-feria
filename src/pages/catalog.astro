@@ -40,6 +40,9 @@ const buzzCutImages = allImages.filter(img =>
 const filmNoirImages = allImages.filter(img => 
 	img.generation?.styleId === 'film-noir-portrait'
 );
+const editorialPortraitImages = allImages.filter(img => 
+	img.generation?.styleId === 'editorial-portrait'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -93,6 +96,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: filmNoirImages.length
+	},
+	{
+		id: 'editorial-portrait',
+		title: '📸 Editorial Portrait B&W',
+		description: "Retrato editorial de alta resolución en blanco y negro con gradiente suave, film grain delicado y estética de fine art photography. Minimalismo elegante y atemporal.",
+		images: editorialPortraitImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: editorialPortraitImages.length
 	}
 ];
 

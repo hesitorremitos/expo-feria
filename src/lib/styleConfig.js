@@ -79,6 +79,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'editorial-portrait': {
+    name: 'Editorial Portrait B&W',
+    emoji: '📸',
+    description: 'Retrato editorial en blanco y negro de alta resolución con film grain',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Editorial Portrait B&W',
+      subtitle: (data) => data.extraDetails || 'Fine Art Photography',
+      type: 'Editorial B&W'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 
