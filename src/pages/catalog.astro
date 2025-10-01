@@ -43,6 +43,9 @@ const filmNoirImages = allImages.filter(img =>
 const editorialPortraitImages = allImages.filter(img => 
 	img.generation?.styleId === 'editorial-portrait'
 );
+const yarnDollImages = allImages.filter(img => 
+	img.generation?.styleId === 'yarn-doll'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -107,6 +110,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: editorialPortraitImages.length
+	},
+	{
+		id: 'yarn-doll',
+		title: '🧶 Yarn Doll Crochet',
+		description: "Muñeco de crochet tejido a mano estilo chibi amigurumi. Textura de lana suave con puntadas visibles, colores pastel kawaii y proporciones adorables. ¡Handmade charm!",
+		images: yarnDollImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: yarnDollImages.length
 	}
 ];
 

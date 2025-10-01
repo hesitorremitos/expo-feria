@@ -95,6 +95,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'yarn-doll': {
+    name: 'Yarn Doll Crochet',
+    emoji: '🧶',
+    description: 'Muñeco de crochet tejido a mano estilo chibi amigurumi',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Yarn Doll Chibi',
+      subtitle: (data) => data.extraDetails || 'Handmade Amigurumi',
+      type: 'Crochet Chibi'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 

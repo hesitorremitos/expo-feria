@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import YarnDollForm from '../../components/YarnDollForm.jsx';
+---
+
+<Layout 
+	title="Yarn Doll - Genera Muñecos de Crochet Chibi | Universidad Tomás Frías" 
+	description="Transforma tu foto en un adorable muñeco de crochet tejido a mano estilo chibi. Textura de lana, colores pastel y proporciones kawaii amigurumi."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-pink-600 via-orange-500 to-amber-600 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-pink-100">🧶 Yarn Doll</span>
+				<span class="block text-orange-100 text-3xl sm:text-4xl mt-2">Crochet Chibi</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-pink-50">
+				Transforma tu foto en un adorable muñeco de crochet tejido a mano estilo chibi. 
+				Textura de lana suave, colores pastel y proporciones kawaii. 🎀
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🧶 Tejido a Mano</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎀 Estilo Chibi</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">💕 Colores Pastel</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Amigurumi</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-pink-50 to-orange-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-pink-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-pink-600 via-orange-500 to-amber-500 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">🎨 Crear tu Muñeco de Crochet</h2>
+					<p class="text-pink-100">Sube tu foto y nosotros creamos el adorable yarn doll tejido a mano</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<YarnDollForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Yarn Doll? 🧶</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos muñecos de crochet artesanales con textura handmade y estilo chibi
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<!-- Proceso 1 -->
+				<div class="text-center p-6 bg-pink-50 rounded-xl border border-pink-200">
+					<div class="text-4xl mb-4">🧶</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Textura Tejida</h3>
+					<p class="text-sm text-accent-600">Lana suave con puntadas visibles y fibras esponjosas realistas</p>
+				</div>
+
+				<!-- Proceso 2 -->
+				<div class="text-center p-6 bg-orange-50 rounded-xl border border-orange-200">
+					<div class="text-4xl mb-4">🎀</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Estilo Chibi</h3>
+					<p class="text-sm text-accent-600">Cabeza grande, cuerpo pequeño y proporciones kawaii adorables</p>
+				</div>
+
+				<!-- Proceso 3 -->
+				<div class="text-center p-6 bg-amber-50 rounded-xl border border-amber-200">
+					<div class="text-4xl mb-4">💕</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Colores Pastel</h3>
+					<p class="text-sm text-accent-600">Rosa algodón, azul bebé, crema y verde menta suaves</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-pink-50 to-orange-100 rounded-2xl p-8 border border-pink-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Yarn Doll 🎨</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>Yarn Doll o muñeco de crochet</strong> es una forma de arte textil japonés conocida como amigurumi. 
+						Combina técnicas de tejido a mano con el encanto del estilo chibi, creando personajes adorables 
+						con proporciones exageradas y expresiones tiernas.
+					</p>
+					<p>
+						Nuestra transformación incluye <strong>textura de lana visible</strong> con puntadas individuales y fibras 
+						esponjosas que dan sensación de suavidad al tacto. Los <strong>colores pastel</strong> (rosa algodón, 
+						azul bebé, crema, verde menta) crean una paleta dulce y armoniosa perfecta para el estilo kawaii.
+					</p>
+					<p>
+						Los muñecos tienen <strong>proporciones chibi clásicas</strong>: cabeza enorme (50% de la altura total), 
+						cuerpo diminuto y extremidades rechonchas. Los ojos son grandes botones expresivos o bordados con brillo, 
+						mejillas rosadas y sonrisa tierna. El resultado es un personaje <em>irresistiblemente adorable</em> 
+						que parece salido de las manos de un artesano experto.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-pink-600 to-orange-600">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para tu muñeco de crochet? 🧶</h2>
+			<p class="text-xl mb-8 text-pink-100">
+				Sube tu foto y obtén tu yarn doll tejido a mano en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-pink-600 hover:bg-pink-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-pink-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-pink-100">
+			<p class="text-sm">
+				⚡ Cada yarn doll es único con detalles artesanales encantadores
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>
