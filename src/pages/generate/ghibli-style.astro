@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import GhibliStyleForm from '../../components/GhibliStyleForm.jsx';
+---
+
+<Layout 
+	title="Ghibli Style - Transforma tu Foto en Anime Studio Ghibli | Universidad Tomás Frías" 
+	description="Transforma tu foto en auténtico arte anime estilo Studio Ghibli con estética de Hayao Miyazaki. Acuarela suave, ojos expresivos y ambiente mágico."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-green-600 via-blue-600 to-teal-600 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-green-100">🎨 Ghibli Style</span>
+				<span class="block text-blue-100 text-3xl sm:text-4xl mt-2">Studio Ghibli Anime</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-green-50">
+				Transforma tu foto en auténtico arte anime estilo Studio Ghibli con la mágica estética de Hayao Miyazaki. 
+				Acuarela nostálgica y ambiente de ensueño. 🌿
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎨 Estilo Miyazaki</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🌿 Acuarela Natural</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Ambiente Mágico</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎬 Calidad Cine</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-green-50 to-blue-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-green-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-green-600 via-blue-600 to-teal-600 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">🎨 Crear tu Ghibli Transformation</h2>
+					<p class="text-green-50">Sube tu foto y nosotros la transformamos en arte anime Studio Ghibli</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<GhibliStyleForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Ghibli Style? 🎨</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos transformaciones auténticas con la magia visual de las películas de Studio Ghibli
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<div class="bg-green-50 rounded-2xl p-8 border border-green-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">👤</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Personaje Anime Ghibli</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Tu rostro transformado en personaje anime con ojos expresivos grandes, características suaves y el estilo inconfundible de Hayao Miyazaki.
+					</p>
+				</div>
+
+				<div class="bg-blue-50 rounded-2xl p-8 border border-blue-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">🌿</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Ambiente Natural</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Escenarios naturales pintados a mano con acuarela: campos floridos, cielos nublados, bosques mágicos o puestas de sol nostálgicas.
+					</p>
+				</div>
+
+				<div class="bg-teal-50 rounded-2xl p-8 border border-teal-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">✨</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Magia Visual</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Partículas flotantes, efectos de luz suave, gradientes de acuarela y la atmósfera de ensueño característica de las películas Ghibli.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-green-50 to-blue-100 rounded-2xl p-8 border border-green-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Ghibli 🎬</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>Ghibli Style</strong> es una transformación auténtica al arte anime de Studio Ghibli, 
+						el legendario estudio de animación japonés fundado por Hayao Miyazaki. Este estilo captura la 
+						esencia visual de películas icónicas como <em>El Viaje de Chihiro</em>, <em>Mi Vecino Totoro</em>, 
+						<em>El Castillo Ambulante</em> y <em>La Princesa Mononoke</em>.
+					</p>
+					<p>
+						La <strong>técnica tradicional de acuarela</strong> se combina con cel-shading suave, creando 
+						personajes expresivos con grandes ojos llenos de emoción y vida. Los fondos naturales pintados 
+						a mano evocan nostalgia y serenidad, mientras que la iluminación cálida y los detalles orgánicos 
+						transmiten la magia del realismo fantástico.
+					</p>
+					<p>
+						Perfecto para <em>fans del anime</em>, amantes de Studio Ghibli y cualquiera que quiera verse 
+						como un personaje de película de Miyazaki. El resultado es digno de un póster oficial de Ghibli 🌟
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-green-800 to-blue-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para tu transformación Ghibli? 🎨</h2>
+			<p class="text-xl mb-8 text-green-100">
+				Sube tu foto y conviértete en un personaje de Studio Ghibli en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-green-800 hover:bg-green-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-green-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-green-100">
+			<p class="text-sm">
+				🎨 Cada transformación respeta tu apariencia con auténtica estética Studio Ghibli
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>

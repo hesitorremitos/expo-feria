@@ -12,6 +12,7 @@ const protectedRoutes = [
 	'/generate/pencil-sketch',
 	'/generate/instagram-chibi',
 	'/generate/lego-collection',
+	'/generate/ghibli-style',
 ];
 
 // Rutas públicas que no requieren autenticación

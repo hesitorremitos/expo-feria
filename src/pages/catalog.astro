@@ -55,6 +55,9 @@ const instagramChibiImages = allImages.filter(img =>
 const legoCollectionImages = allImages.filter(img => 
 	img.generation?.styleId === 'lego-collection'
 );
+const ghibliStyleImages = allImages.filter(img => 
+	img.generation?.styleId === 'ghibli-style'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -163,6 +166,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1515488764276-beab7607c1e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: legoCollectionImages.length
+	},
+	{
+		id: 'ghibli-style',
+		title: '🎨 Ghibli Style',
+		description: "Transformación auténtica a arte anime Studio Ghibli con acuarela nostálgica, ojos expresivos y la mágica estética de Hayao Miyazaki. Calidad cinematográfica.",
+		images: ghibliStyleImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1578632292335-df3abbb0d586?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1545165883-be7f9e0e9e1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: ghibliStyleImages.length
 	}
 ];
 

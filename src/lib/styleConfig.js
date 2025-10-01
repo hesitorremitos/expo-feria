@@ -159,6 +159,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'ghibli-style': {
+    name: 'Ghibli Style',
+    emoji: '🎨',
+    description: 'Transformación a arte anime estilo Studio Ghibli con estética Miyazaki',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Ghibli Style',
+      subtitle: (data) => data.extraDetails || 'Studio Ghibli Art',
+      type: 'Anime Transformation'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 
