@@ -175,6 +175,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'polaroid-chibi': {
+    name: 'Polaroid Chibi',
+    emoji: '📷',
+    description: 'Chibi 3D saliendo de foto Polaroid vintage con efecto de profundidad',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Polaroid Chibi',
+      subtitle: (data) => data.extraDetails || 'Breaking Out Effect',
+      type: '3D Chibi Polaroid'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 

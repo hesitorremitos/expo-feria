@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import PolaroidChibiForm from '../../components/PolaroidChibiForm.jsx';
+---
+
+<Layout 
+	title="Polaroid Chibi - Chibi 3D Saliendo de Foto Polaroid | Universidad Tomás Frías" 
+	description="Transforma tu foto en un chibi 3D adorable saliendo de una Polaroid vintage. Efecto de profundidad creativo perfecto para redes sociales."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-600 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-pink-100">📷 Polaroid Chibi</span>
+				<span class="block text-purple-100 text-3xl sm:text-4xl mt-2">Breaking Out Effect</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-pink-50">
+				Transforma tu foto en un chibi 3D adorable literalmente saliendo de una Polaroid vintage. 
+				¡Efecto de profundidad único y creativo! 💜
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">📷 Polaroid Vintage</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎨 Chibi 3D</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Breaking Out</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">💜 Creative Art</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-pink-50 to-purple-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-pink-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">📷 Crear tu Polaroid Chibi</h2>
+					<p class="text-pink-50">Sube tu foto y nosotros creamos el chibi 3D saliendo de Polaroid</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<PolaroidChibiForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Polaroid Chibi? 📷</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos chibis 3D adorables con efecto único de salir de foto Polaroid vintage
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<div class="bg-pink-50 rounded-2xl p-8 border border-pink-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">👤</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Chibi 3D Personalizado</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Tu rostro transformado en adorable chibi 3D con grandes ojos expresivos, proporciones kawaii y render profesional tipo Pixar.
+					</p>
+				</div>
+
+				<div class="bg-purple-50 rounded-2xl p-8 border border-purple-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">📷</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Polaroid Vintage</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Foto Polaroid auténtica con bordes blancos característicos, textura de papel y estética de cámara instantánea clásica.
+					</p>
+				</div>
+
+				<div class="bg-indigo-50 rounded-2xl p-8 border border-indigo-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">✨</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Efecto Breaking Out</h3>
+					<p class="text-accent-600 leading-relaxed">
+						El chibi literalmente sale de la foto rompiendo la 4ta pared, con profundidad real y sombras que crean un efecto único y llamativo.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-pink-50 to-purple-100 rounded-2xl p-8 border border-pink-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Polaroid Chibi 📸</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>Polaroid Chibi</strong> es un estilo creativo que combina personajes chibi 3D adorables 
+						con el efecto visual de "romper la cuarta pared". El chibi emerge literalmente de una foto Polaroid 
+						vintage, creando un contraste fascinante entre el personaje 3D (con volumen y profundidad) y la foto 
+						plana impresa.
+					</p>
+					<p>
+						El <strong>efecto de profundidad</strong> se logra mostrando la parte superior del chibi completamente 
+						fuera del marco, mientras que las piernas y parte inferior permanecen dentro de la foto impresa. Los 
+						bordes rasgados del papel y las sombras realistas refuerzan la sensación de que el personaje está 
+						físicamente saliendo de la fotografía.
+					</p>
+					<p>
+						Perfecto para <em>fotos de perfil creativas</em>, contenido de redes sociales único y cualquiera 
+						que quiera un avatar adorable con un toque artístico innovador. El resultado es Instagram-worthy 
+						y completamente único 💜
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-pink-800 to-purple-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para salir de la foto? 📷</h2>
+			<p class="text-xl mb-8 text-pink-100">
+				Sube tu foto y obtén tu chibi Polaroid en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-pink-800 hover:bg-pink-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-pink-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-pink-100">
+			<p class="text-sm">
+				📷 Cada Polaroid Chibi es único con efecto de profundidad profesional
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>

@@ -13,6 +13,7 @@ const protectedRoutes = [
 	'/generate/instagram-chibi',
 	'/generate/lego-collection',
 	'/generate/ghibli-style',
+	'/generate/polaroid-chibi',
 ];
 
 // Rutas públicas que no requieren autenticación

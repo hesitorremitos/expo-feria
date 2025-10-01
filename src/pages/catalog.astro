@@ -58,6 +58,9 @@ const legoCollectionImages = allImages.filter(img =>
 const ghibliStyleImages = allImages.filter(img => 
 	img.generation?.styleId === 'ghibli-style'
 );
+const polaroidChibiImages = allImages.filter(img => 
+	img.generation?.styleId === 'polaroid-chibi'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -177,6 +180,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1545165883-be7f9e0e9e1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: ghibliStyleImages.length
+	},
+	{
+		id: 'polaroid-chibi',
+		title: '📷 Polaroid Chibi',
+		description: "Chibi 3D adorable literalmente saliendo de una Polaroid vintage con efecto de profundidad único. Breaking the 4th wall con render profesional tipo Pixar.",
+		images: polaroidChibiImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1526413232644-8a40f03cc03b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1492112007959-c35ae067c37b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: polaroidChibiImages.length
 	}
 ];
 
