@@ -1,0 +1,530 @@
+---
+export const prerender = false; // Habilitar SSR para contenido dinámico
+
+import { getGeneratedImages } from '../lib/galleryService.js';
+import { normalizeImageData } from '../lib/styleConfig.js';
+
+// Obtener todas las imágenes generadas
+const allImages = await getGeneratedImages();
+
+// Normalizar imágenes y filtrar las que tienen originales
+const normalizedImages = allImages.map(img => normalizeImageData(img));
+const imagesWithOriginals = normalizedImages.filter(img => img.availableImages.length > 0);
+
+// Si no hay imágenes con originales, usar todas las imágenes
+const displayImages = imagesWithOriginals.length > 0 ? imagesWithOriginals : normalizedImages;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería TV - Expo Feria AI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      color: white;
+    }
+
+    .tv-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    /* Header */
+    .tv-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .tv-header h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .tv-header p {
+      font-size: 1.5rem;
+      color: #a0aec0;
+      font-weight: 300;
+    }
+
+    /* Main Display */
+    .display-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      animation: slideUp 1s ease-out;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* Image Container */
+    .image-container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2rem;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s ease;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+      border-color: rgba(102, 126, 234, 0.5);
+    }
+
+    .image-label {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .image-label.original {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .image-label.generated {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .image-wrapper {
+      flex: 1;
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.2);
+      min-height: 0;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      animation: fadeIn 0.8s ease-in;
+      display: block;
+    }
+
+    /* Style Badge */
+    .style-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(102, 126, 234, 0.9);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Footer Info */
+    .footer-info {
+      margin-top: 2rem;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .footer-info .counter {
+      font-size: 1.5rem;
+      color: #a0aec0;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-info .counter span {
+      color: #667eea;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    /* Loading State */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 2rem;
+      color: #667eea;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Responsive adjustments for very large screens */
+    @media (min-width: 2560px) {
+      .tv-header h1 {
+        font-size: 6rem;
+      }
+      .tv-header p {
+        font-size: 2.5rem;
+      }
+      .image-label {
+        font-size: 3rem;
+      }
+      .style-badge {
+        font-size: 1.8rem;
+        padding: 1rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tv-container">
+    <!-- Header -->
+    <div class="tv-header">
+      <h1>Ingeniería Informática</h1>
+    </div>
+
+    <!-- Main Display -->
+    <div class="display-main" id="displayMain">
+      {displayImages.length > 0 ? (
+        <>
+          <!-- Imagen Original -->
+          <div class="image-container">
+            <div class="image-label original">📸 Original</div>
+            <div class="image-wrapper">
+              <img 
+                id="originalImage" 
+                src={
+                  displayImages[0].availableImages.length > 0 
+                    ? displayImages[0].originalImages[displayImages[0].availableImages[0]].url
+                    : (displayImages[0].imageUrl || displayImages[0].url)
+                }
+                alt="Imagen Original"
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          <!-- Imagen Generada -->
+          <div class="image-container">
+            <div class="image-label generated">🎨 Creación AI</div>
+            <div class="style-badge" id="styleBadge">
+              {displayImages[0].styleId?.replace(/-/g, ' ').toUpperCase() || 'AI STYLE'}
+            </div>
+            <div class="image-wrapper">
+              <img 
+                id="generatedImage" 
+                src={displayImages[0].imageUrl || displayImages[0].url}
+                alt="Imagen Generada"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <div class="loading pulse">
+          <p>⏳ Cargando galería...</p>
+        </div>
+      )}
+    </div>
+
+    <!-- Footer Info -->
+    <div class="footer-info">
+      <div class="counter">
+        <span id="currentIndex">1</span> / <span id="totalImages">{displayImages.length}</span>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ displayImages }}>
+    // ==========================================
+    // SISTEMA DE COLA CIRCULAR CON AUTO-UPDATE
+    // ==========================================
+    
+    let currentIndex = 0;
+    const images = [...displayImages]; // Copia mutable del array
+    const TRANSITION_INTERVAL = 8000; // 8 segundos por imagen
+    const POLL_INTERVAL = 5000; // Verificar nuevas imágenes cada 5 segundos
+    
+    // Control de última imagen conocida
+    let lastKnownImageId = images.length > 0 ? (images[0].id || images[0].fileName) : null;
+    let lastKnownTimestamp = images.length > 0 ? images[0].timestamp : 0;
+    
+    // Flag para pausar rotación al agregar nueva imagen
+    let isPaused = false;
+    let isFirstDisplay = true; // Para evitar duplicar la primera imagen
+
+    function updateDisplay(skipIncrement = false) {
+      if (images.length === 0 || isPaused) return;
+
+      const currentImage = images[currentIndex];
+      
+      console.log(`🖼️ Mostrando imagen ${currentIndex + 1}/${images.length}: ${currentImage.id || currentImage.fileName}`);
+      
+      // Actualizar imagen original usando availableImages normalizado
+      const originalImg = document.getElementById('originalImage');
+      let originalSrc = null;
+      
+      // Usar el sistema de imágenes normalizadas
+      if (currentImage.availableImages && currentImage.availableImages.length > 0) {
+        const firstAvailable = currentImage.availableImages[0];
+        if (currentImage.originalImages && currentImage.originalImages[firstAvailable]) {
+          originalSrc = currentImage.originalImages[firstAvailable].url;
+        }
+      }
+      
+      // Si no hay imagen original, usar la generada como fallback
+      if (!originalSrc) {
+        originalSrc = currentImage.imageUrl || currentImage.url;
+      }
+      
+      if (originalImg && originalSrc) {
+        originalImg.style.opacity = '0';
+        setTimeout(() => {
+          originalImg.src = originalSrc;
+          originalImg.style.transition = 'opacity 0.8s ease-in';
+          originalImg.style.opacity = '1';
+        }, 300);
+      }
+
+      // Actualizar imagen generada
+      const generatedImg = document.getElementById('generatedImage');
+      if (generatedImg) {
+        generatedImg.style.opacity = '0';
+        setTimeout(() => {
+          generatedImg.src = currentImage.imageUrl || currentImage.url;
+          generatedImg.style.transition = 'opacity 0.8s ease-in';
+          generatedImg.style.opacity = '1';
+        }, 300);
+      }
+
+      // Actualizar badge de estilo
+      const styleBadge = document.getElementById('styleBadge');
+      if (styleBadge && currentImage.styleId) {
+        const styleName = currentImage.styleId
+          .replace(/-/g, ' ')
+          .toUpperCase();
+        styleBadge.textContent = styleName;
+      }
+
+      // Actualizar contador
+      const currentIndexEl = document.getElementById('currentIndex');
+      const totalImagesEl = document.getElementById('totalImages');
+      if (currentIndexEl) {
+        currentIndexEl.textContent = currentIndex + 1;
+      }
+      if (totalImagesEl) {
+        totalImagesEl.textContent = images.length;
+      }
+
+      // Avanzar al siguiente índice (cola circular) solo si no se pide saltar
+      if (!skipIncrement) {
+        currentIndex = (currentIndex + 1) % images.length;
+      }
+    }
+
+    // Mostrar notificación de nueva imagen
+    function showNewImageNotification() {
+      // Crear elemento de notificación
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem 4rem;
+        border-radius: 2rem;
+        font-size: 2rem;
+        font-weight: 700;
+        z-index: 9999;
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.6);
+        animation: notificationPulse 0.5s ease-out;
+      `;
+      notification.innerHTML = '✨ Nueva imagen generada! ✨';
+      
+      // Agregar animación CSS
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes notificationPulse {
+          0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+          50% { transform: translate(-50%, -50%) scale(1.1); }
+          100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      document.body.appendChild(notification);
+      
+      // Remover después de 3 segundos
+      setTimeout(() => {
+        notification.style.transition = 'opacity 0.5s ease-out';
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 500);
+      }, 3000);
+    }
+
+    // Verificar nuevas imágenes (Polling)
+    async function checkForNewImages() {
+      try {
+        const response = await fetch('/api/latest-image.json');
+        const data = await response.json();
+        
+        if (!data.image) return;
+        
+        const newImageId = data.imageId || data.image.id || data.image.fileName;
+        const newTimestamp = data.timestamp;
+        
+        // Verificar si es una imagen nueva (diferente a la última conocida)
+        if (newImageId !== lastKnownImageId && newTimestamp > lastKnownTimestamp) {
+          console.log('🎉 Nueva imagen detectada:', newImageId);
+          
+          // Pausar rotación temporalmente
+          isPaused = true;
+          
+          // ====== SISTEMA DE COLA: Insertar DESPUÉS de la imagen actual ======
+          // Calcular posición de inserción (después del índice actual)
+          const insertPosition = currentIndex + 1;
+          
+          // Insertar la nueva imagen en la siguiente posición de la cola
+          images.splice(insertPosition, 0, data.image);
+          
+          console.log(`📍 Nueva imagen insertada en posición ${insertPosition}/${images.length}`);
+          
+          // Actualizar referencias
+          lastKnownImageId = newImageId;
+          lastKnownTimestamp = newTimestamp;
+          
+          // Mostrar notificación
+          showNewImageNotification();
+          
+          // Esperar 3 segundos, luego avanzar a la nueva imagen
+          setTimeout(() => {
+            // Avanzar al siguiente índice (que ahora es la nueva imagen)
+            currentIndex = (currentIndex + 1) % images.length;
+            
+            // Mostrar la nueva imagen SIN auto-incrementar
+            updateDisplay(true);
+            
+            // Reanudar rotación después de mostrar
+            setTimeout(() => {
+              isPaused = false;
+              console.log('▶️ Rotación reanudada desde posición:', currentIndex + 1);
+            }, TRANSITION_INTERVAL);
+            
+          }, 3000);
+          
+          console.log(`📊 Cola actualizada: ${images.length} imágenes totales`);
+        }
+      } catch (error) {
+        console.error('❌ Error verificando nuevas imágenes:', error);
+      }
+    }
+
+    // Iniciar el carousel automático
+    let carouselInterval;
+    if (images.length > 0) {
+      // La primera vez, avanzar el índice después de mostrar la inicial
+      setTimeout(() => {
+        if (!isPaused && isFirstDisplay) {
+          currentIndex = (currentIndex + 1) % images.length;
+          isFirstDisplay = false;
+        }
+      }, TRANSITION_INTERVAL);
+      
+      // Luego iniciar el intervalo normal
+      carouselInterval = setInterval(() => {
+        if (!isPaused) {
+          updateDisplay();
+        }
+      }, TRANSITION_INTERVAL);
+    }
+
+    // Iniciar polling para nuevas imágenes
+    setInterval(checkForNewImages, POLL_INTERVAL);
+    
+    // Verificar inmediatamente al cargar
+    setTimeout(checkForNewImages, 2000);
+
+    // Permitir navegación manual con teclado
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        updateDisplay();
+      } else if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 2 + images.length) % images.length;
+        updateDisplay();
+      } else if (e.key === 'r' || e.key === 'R') {
+        // Tecla 'R' para refresh manual
+        checkForNewImages();
+      }
+    });
+
+    console.log('🖥️ TV Display iniciado con', images.length, 'imágenes');
+    console.log('🔄 Sistema de cola circular activo');
+    console.log('📡 Polling cada', POLL_INTERVAL / 1000, 'segundos');
+  </script>
+</body>
+</html>
