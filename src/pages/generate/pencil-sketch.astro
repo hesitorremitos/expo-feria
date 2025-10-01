@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import PencilSketchForm from '../../components/PencilSketchForm.jsx';
+---
+
+<Layout 
+	title="Pencil Sketch - Genera Bocetos Realistas a Lápiz | Universidad Tomás Frías" 
+	description="Transforma tu foto en un boceto realista a lápiz dibujado a mano con textura de papel y técnicas de sombreado profesional."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-amber-600 via-orange-600 to-yellow-700 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-amber-100">✏️ Pencil Sketch</span>
+				<span class="block text-orange-100 text-3xl sm:text-4xl mt-2">Realistic Drawing</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-amber-50">
+				Transforma tu foto en un boceto realista a lápiz dibujado a mano. 
+				Con textura de papel auténtica y técnicas de sombreado profesional. 🎨
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✏️ Trazo Realista</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">📄 Textura de Papel</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎨 Sombreado Pro</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">👨‍🎨 Arte Clásico</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-amber-50 to-orange-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-amber-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">✏️ Crear tu Boceto a Lápiz</h2>
+					<p class="text-amber-50">Sube una foto y nosotros creamos el boceto realista dibujado a mano</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<PencilSketchForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Pencil Sketch? ✏️</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos bocetos realistas con técnicas de dibujo a lápiz profesional
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<!-- Proceso 1 -->
+				<div class="text-center p-6 bg-amber-50 rounded-xl border border-amber-200">
+					<div class="text-4xl mb-4">✏️</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Trazos a Lápiz</h3>
+					<p class="text-sm text-accent-600">Líneas de grafito con presión variable y técnicas de sombreado</p>
+				</div>
+
+				<!-- Proceso 2 -->
+				<div class="text-center p-6 bg-orange-50 rounded-xl border border-orange-200">
+					<div class="text-4xl mb-4">📄</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Textura de Papel</h3>
+					<p class="text-sm text-accent-600">Papel crema auténtico con grano visible y textura natural</p>
+				</div>
+
+				<!-- Proceso 3 -->
+				<div class="text-center p-6 bg-yellow-50 rounded-xl border border-yellow-200">
+					<div class="text-4xl mb-4">🎨</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Sombreado Realista</h3>
+					<p class="text-sm text-accent-600">Gradientes tonales y técnicas de cross-hatching profesional</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl p-8 border border-amber-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Pencil Sketch 🎨</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>boceto a lápiz realista</strong> es una técnica de arte clásica que captura la esencia 
+						del sujeto mediante trazos de grafito cuidadosamente ejecutados. Este estilo requiere dominio 
+						del sombreado, las proporciones y la captura de luz y sombra.
+					</p>
+					<p>
+						Nuestra transformación incluye <strong>trazos de lápiz con presión variable</strong>, desde líneas 
+						ligeras para highlights hasta trazos pesados para sombras profundas. La textura del papel crema 
+						añade autenticidad, mostrando el grano natural que se ve en los bocetos tradicionales.
+					</p>
+					<p>
+						Utilizamos técnicas profesionales como <em>cross-hatching</em> (sombreado cruzado), 
+						<em>contour lines</em> (líneas de contorno) y difuminado sutil con los dedos. El resultado 
+						es un retrato atemporal que parece dibujado por un artista experto con años de experiencia.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-amber-800 to-orange-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para crear tu boceto a lápiz? ✏️</h2>
+			<p class="text-xl mb-8 text-amber-100">
+				Sube tu foto y obtén un boceto realista en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-amber-800 hover:bg-amber-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-amber-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-amber-100">
+			<p class="text-sm">
+				⚡ Cada boceto a lápiz es único y procesado con tecnología de IA avanzada
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>

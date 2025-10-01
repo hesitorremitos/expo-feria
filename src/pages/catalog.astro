@@ -46,6 +46,9 @@ const editorialPortraitImages = allImages.filter(img =>
 const yarnDollImages = allImages.filter(img => 
 	img.generation?.styleId === 'yarn-doll'
 );
+const pencilSketchImages = allImages.filter(img => 
+	img.generation?.styleId === 'pencil-sketch'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -121,6 +124,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: yarnDollImages.length
+	},
+	{
+		id: 'pencil-sketch',
+		title: '✏️ Pencil Sketch',
+		description: "Boceto realista a lápiz dibujado a mano con textura de papel auténtica, técnicas de sombreado profesional y trazos de grafito. Arte clásico atemporal.",
+		images: pencilSketchImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1513519245088-0e12902e35ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: pencilSketchImages.length
 	}
 ];
 

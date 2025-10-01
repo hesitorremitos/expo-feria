@@ -111,6 +111,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'pencil-sketch': {
+    name: 'Pencil Sketch',
+    emoji: '✏️',
+    description: 'Boceto realista a lápiz dibujado a mano con textura de papel',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Pencil Sketch',
+      subtitle: (data) => data.extraDetails || 'Realistic Drawing',
+      type: 'Hand-Drawn Sketch'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 
