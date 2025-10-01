@@ -61,6 +61,9 @@ const ghibliStyleImages = allImages.filter(img =>
 const polaroidChibiImages = allImages.filter(img => 
 	img.generation?.styleId === 'polaroid-chibi'
 );
+const ghibliClassicImages = allImages.filter(img => 
+	img.generation?.styleId === 'ghibli-classic'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -191,6 +194,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1492112007959-c35ae067c37b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: polaroidChibiImages.length
+	},
+	{
+		id: 'ghibli-classic',
+		title: '🎨 Ghibli Classic',
+		description: "Redibuja tu foto en el icónico estilo anime de Studio Ghibli. Simple, auténtico y atemporal - captura la magia de Miyazaki.",
+		images: ghibliClassicImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1545165883-be7f9e0e9e1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: ghibliClassicImages.length
 	}
 ];
 

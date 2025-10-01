@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import GhibliClassicForm from '../../components/GhibliClassicForm.jsx';
+---
+
+<Layout 
+	title="Ghibli Classic - Redibuja tu foto estilo Studio Ghibli | Universidad Tomás Frías" 
+	description="Transforma tu foto en arte anime estilo Studio Ghibli. Estilo clásico y auténtico de las películas de Miyazaki."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-teal-600 via-emerald-600 to-green-600 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-teal-100">🎨 Ghibli Classic</span>
+				<span class="block text-emerald-100 text-3xl sm:text-4xl mt-2">Studio Ghibli Style</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-teal-50">
+				Redibuja tu foto en el icónico estilo anime de Studio Ghibli. 
+				¡Captura la magia atemporal de Miyazaki en cada trazo! ✨
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎨 Estilo Clásico</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Auténtico Ghibli</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎬 Miyazaki Magic</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🌿 Arte Atemporal</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-teal-50 to-emerald-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-teal-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-teal-600 via-emerald-600 to-green-600 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">🎨 Crear tu Ghibli Classic</h2>
+					<p class="text-teal-50">Sube tu foto y déjanos redibujarla en estilo Studio Ghibli</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<GhibliClassicForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Ghibli Classic? 🎨</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Redibujamos tu foto con el estilo auténtico y clásico de Studio Ghibli
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<div class="bg-teal-50 rounded-2xl p-8 border border-teal-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">🎨</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Estilo Clásico</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Redibujamos tu foto con el estilo anime icónico de Studio Ghibli, capturando la esencia artística de Miyazaki.
+					</p>
+				</div>
+
+				<div class="bg-emerald-50 rounded-2xl p-8 border border-emerald-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">✨</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Auténtico y Simple</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Sin complicaciones. Prompt simple y directo que deja que la magia del estilo Ghibli hable por sí misma.
+					</p>
+				</div>
+
+				<div class="bg-green-50 rounded-2xl p-8 border border-green-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">🎬</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Miyazaki Magic</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Captura la atmósfera nostálgica y la estética atemporal que caracteriza las obras maestras de Studio Ghibli.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-teal-50 to-emerald-100 rounded-2xl p-8 border border-teal-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Ghibli Classic 🌿</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>Ghibli Classic</strong> es un estilo que captura la esencia pura del arte de Studio Ghibli. 
+						Sin elementos complejos ni descripciones elaboradas, simplemente redibujamos tu foto con el icónico 
+						estilo anime que ha cautivado a millones de personas alrededor del mundo.
+					</p>
+					<p>
+						Este enfoque <strong>simple y auténtico</strong> permite que la IA se concentre en lo esencial: 
+						transformar tu fotografía en una obra de arte que parece sacada directamente de películas como 
+						<em>Spirited Away</em>, <em>My Neighbor Totoro</em>, <em>Howl's Moving Castle</em> y otras obras 
+						maestras de Hayao Miyazaki.
+					</p>
+					<p>
+						El resultado es una imagen con la <strong>atmósfera nostálgica</strong>, los <strong>colores suaves</strong> 
+						y la <strong>estética atemporal</strong> que caracterizan el trabajo de Studio Ghibli. Perfecto para fans 
+						del anime, coleccionistas de arte digital y cualquiera que aprecie la belleza del estilo Ghibli 🎨
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-teal-800 to-emerald-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para tu arte Ghibli? 🎨</h2>
+			<p class="text-xl mb-8 text-teal-100">
+				Sube tu foto y déjanos crear tu obra maestra estilo Studio Ghibli
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-teal-800 hover:bg-teal-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-teal-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-teal-100">
+			<p class="text-sm">
+				🎨 Cada Ghibli Classic es único con estilo auténtico de Studio Ghibli
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>

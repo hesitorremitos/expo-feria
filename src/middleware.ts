@@ -14,6 +14,7 @@ const protectedRoutes = [
 	'/generate/lego-collection',
 	'/generate/ghibli-style',
 	'/generate/polaroid-chibi',
+	'/generate/ghibli-classic'
 ];
 
 // Rutas públicas que no requieren autenticación

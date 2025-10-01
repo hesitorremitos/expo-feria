@@ -191,6 +191,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'ghibli-classic': {
+    name: 'Ghibli Classic',
+    emoji: '🎨',
+    description: 'Redibuja tu foto en estilo Studio Ghibli clásico y auténtico',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Ghibli Classic',
+      subtitle: (data) => data.extraDetails || 'Studio Ghibli Art',
+      type: 'Ghibli Classic'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 
