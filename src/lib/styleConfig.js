@@ -143,6 +143,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'lego-collection': {
+    name: 'LEGO Collection',
+    emoji: '🧸',
+    description: 'Minifigura LEGO en vitrina de colección con animal acompañante',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'LEGO Collection',
+      subtitle: (data) => data.extraDetails || 'Minifigure Display',
+      type: 'LEGO Display'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 

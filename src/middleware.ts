@@ -11,6 +11,7 @@ const protectedRoutes = [
 	'/generate/yarn-doll',
 	'/generate/pencil-sketch',
 	'/generate/instagram-chibi',
+	'/generate/lego-collection',
 ];
 
 // Rutas públicas que no requieren autenticación

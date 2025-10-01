@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import LegoCollectionForm from '../../components/LegoCollectionForm.jsx';
+---
+
+<Layout 
+	title="LEGO Collection - Genera Minifiguras de Colección | Universidad Tomás Frías" 
+	description="Transforma tu foto en una minifigura LEGO auténtica dentro de vitrina de colección con animal acompañante. Arte de ladrillos profesional."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-orange-600 via-red-600 to-yellow-600 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-orange-100">🧸 LEGO Collection</span>
+				<span class="block text-red-100 text-3xl sm:text-4xl mt-2">Minifigure Display</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-orange-50">
+				Conviértete en una exclusiva minifigura LEGO de colección dentro de vitrina profesional. 
+				Arte de ladrillos auténtico con animal acompañante. 🧱
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🧱 Auténtico LEGO</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🐾 Animal Acompañante</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🔲 Vitrina Premium</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Colección</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-orange-50 to-red-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-orange-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-orange-600 via-red-600 to-yellow-600 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">🧸 Crear tu Minifigura LEGO</h2>
+					<p class="text-orange-50">Sube tu foto y nosotros creamos la minifigura en vitrina de colección</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<LegoCollectionForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro LEGO Collection? 🧸</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos minifiguras LEGO auténticas en vitrinas profesionales con animal acompañante
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<div class="bg-orange-50 rounded-2xl p-8 border border-orange-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">👤</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Minifigura Personalizada</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Tu rostro y estilo convertidos en una auténtica minifigura LEGO con proporciones y detalles característicos, piel amarilla clásica y accesorios temáticos.
+					</p>
+				</div>
+
+				<div class="bg-red-50 rounded-2xl p-8 border border-red-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">🐾</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Animal Acompañante</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Pequeño animal construido con ladrillos LEGO auténticos (perro, gato o pájaro) con studs visibles y conexiones reales de piezas LEGO.
+					</p>
+				</div>
+
+				<div class="bg-yellow-50 rounded-2xl p-8 border border-yellow-200 hover:shadow-xl transition-shadow">
+					<div class="text-5xl mb-4">🔲</div>
+					<h3 class="text-xl font-bold text-primary-800 mb-3">Vitrina Premium</h3>
+					<p class="text-accent-600 leading-relaxed">
+						Display profesional de cristal con base LEGO auténtica mostrando studs, iluminación LED y presentación de colección exclusiva.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-8 border border-orange-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo LEGO Collection 🧱</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						La <strong>LEGO Collection</strong> es un estilo que transforma personas en minifiguras LEGO auténticas 
+						dentro de vitrinas de exhibición profesionales. Cada minifigura respeta las proporciones características 
+						de LEGO: cabeza cilíndrica, torso segmentado, piernas articuladas y la icónica piel amarilla.
+					</p>
+					<p>
+						La <strong>vitrina de cristal</strong> incluye una base LEGO oficial con studs visibles en patrón de cuadrícula, 
+						iluminación LED profesional y un pequeño animal acompañante construido con ladrillos LEGO reales mostrando 
+						conexiones y texturas auténticas.
+					</p>
+					<p>
+						Perfecto para <em>coleccionistas LEGO</em>, fans del brick building y cualquiera que quiera verse como 
+						una minifigura de edición limitada. El resultado es digno de una colección premium 🧸
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-orange-800 to-red-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para crear tu LEGO Minifigure? 🧸</h2>
+			<p class="text-xl mb-8 text-orange-100">
+				Sube tu foto y obtén tu minifigura de colección en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-orange-800 hover:bg-orange-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-orange-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-orange-100">
+			<p class="text-sm">
+				🧱 Cada minifigura respeta tu apariencia con auténtica estética LEGO
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>
