@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import InstagramChibiForm from '../../components/InstagramChibiForm.jsx';
+---
+
+<Layout 
+	title="Instagram Chibi 3D - Genera Personajes para Redes Sociales | Universidad Tomás Frías" 
+	description="Transforma tu foto en un chibi 3D adorable sentado en un marco de Instagram. Perfecto para avatares y contenido de redes sociales."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-purple-600 via-pink-600 to-purple-700 py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6">
+				<span class="text-purple-100">📱 Instagram Chibi</span>
+				<span class="block text-pink-100 text-3xl sm:text-4xl mt-2">3D Social Media</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-purple-50">
+				Transforma tu foto en un chibi 3D adorable sentado en un marco de Instagram. 
+				¡Perfecto para avatares y contenido de redes sociales! ✨
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">📱 Frame Instagram</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎨 Render 3D</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ Chibi Style</span>
+				<span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">💜 Social Media</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-purple-50 to-pink-50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border border-purple-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 px-8 py-6">
+					<h2 class="text-2xl font-bold text-white mb-2">📱 Crear tu Instagram Chibi 3D</h2>
+					<p class="text-purple-50">Sube una foto y nosotros creamos el chibi 3D en marco de Instagram</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<InstagramChibiForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-primary-800 mb-4">¿Cómo funciona nuestro Instagram Chibi? 📱</h2>
+				<p class="text-lg text-accent-600 max-w-2xl mx-auto">
+					Creamos personajes chibi 3D profesionales con estética de redes sociales
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<!-- Proceso 1 -->
+				<div class="text-center p-6 bg-purple-50 rounded-xl border border-purple-200">
+					<div class="text-4xl mb-4">🎨</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Chibi 3D Render</h3>
+					<p class="text-sm text-accent-600">Personaje 3D adorable con textura suave y proporciones chibi</p>
+				</div>
+
+				<!-- Proceso 2 -->
+				<div class="text-center p-6 bg-pink-50 rounded-xl border border-pink-200">
+					<div class="text-4xl mb-4">📱</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Marco Instagram</h3>
+					<p class="text-sm text-accent-600">Frame tipo Polaroid con UI de Instagram y composición creativa</p>
+				</div>
+
+				<!-- Proceso 3 -->
+				<div class="text-center p-6 bg-purple-50 rounded-xl border border-purple-200">
+					<div class="text-4xl mb-4">✨</div>
+					<h3 class="text-lg font-semibold text-primary-800 mb-2">Estética Social Media</h3>
+					<p class="text-sm text-accent-600">Colores pastel modernos perfectos para redes sociales</p>
+				</div>
+
+			</div>
+
+			<div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 border border-purple-200">
+				<h3 class="text-2xl font-bold text-primary-800 mb-4">Sobre el Estilo Instagram Chibi 🎨</h3>
+				<div class="space-y-4 text-accent-700">
+					<p>
+						El <strong>Instagram Chibi 3D</strong> es un estilo moderno que combina personajes chibi adorables 
+						con la estética de redes sociales. El personaje está sentado casualmente en el borde de un marco 
+						de Instagram físico, creando una composición única y creativa.
+					</p>
+					<p>
+						El <strong>render 3D profesional</strong> utiliza iluminación suave tipo Pixar, texturas smooth 
+						tipo clay/plástico y colores pastel que son tendencia en redes sociales. El marco incluye elementos 
+						sutiles de la UI de Instagram como el botón de like y compartir.
+					</p>
+					<p>
+						Perfecto para usar como <em>avatar de redes sociales</em>, foto de perfil o contenido creativo 
+						para Instagram, TikTok y otras plataformas. El resultado es moderno, trendy y completamente 
+						Instagram-worthy 📱
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gradient-to-br from-purple-800 to-pink-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4">¿Listo para crear tu Instagram Chibi? 📱</h2>
+			<p class="text-xl mb-8 text-purple-100">
+				Sube tu foto y obtén tu chibi 3D en segundos
+			</p>
+			<Button 
+				variant="secondary" 
+				size="lg" 
+				href="#"
+				className="bg-white text-purple-800 hover:bg-purple-50"
+			>
+				Volver arriba ↑
+			</Button>
+		</div>
+	</section>
+
+	<!-- Footer informativo -->
+	<section class="py-8 bg-purple-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-purple-100">
+			<p class="text-sm">
+				⚡ Cada Instagram Chibi es único y procesado con tecnología de IA avanzada
+				<br/>
+				⏱️ Tiempo de generación: 15-45 segundos según calidad seleccionada
+			</p>
+		</div>
+	</section>
+
+</Layout>

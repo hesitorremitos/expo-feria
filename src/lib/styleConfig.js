@@ -127,6 +127,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'instagram-chibi': {
+    name: 'Instagram Chibi 3D',
+    emoji: '📱',
+    description: 'Chibi 3D sentado en marco de Instagram con estética social media',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Instagram Chibi 3D',
+      subtitle: (data) => data.extraDetails || 'Social Media Art',
+      type: '3D Chibi Frame'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 

@@ -10,6 +10,7 @@ const protectedRoutes = [
 	'/generate/editorial-portrait',
 	'/generate/yarn-doll',
 	'/generate/pencil-sketch',
+	'/generate/instagram-chibi',
 ];
 
 // Rutas públicas que no requieren autenticación

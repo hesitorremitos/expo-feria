@@ -49,6 +49,9 @@ const yarnDollImages = allImages.filter(img =>
 const pencilSketchImages = allImages.filter(img => 
 	img.generation?.styleId === 'pencil-sketch'
 );
+const instagramChibiImages = allImages.filter(img => 
+	img.generation?.styleId === 'instagram-chibi'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -135,6 +138,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: pencilSketchImages.length
+	},
+	{
+		id: 'instagram-chibi',
+		title: '📱 Instagram Chibi 3D',
+		description: "Chibi 3D adorable sentado en marco de Instagram con render profesional, colores pastel y estética moderna de redes sociales. Perfecto para avatares.",
+		images: instagramChibiImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: instagramChibiImages.length
 	}
 ];
 
