@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.jsx';
+import FilmNoirForm from '../../components/FilmNoirForm.jsx';
+---
+
+<Layout 
+	title="Retrato Histórico Siglo XIX - América Victoriana | Universidad Tomás Frías" 
+	description="Transforma tu foto en un elegante retrato histórico del siglo XIX americano con estilo daguerrotipo, ambiente victoriano y textura vintage de los años 1800s."
+>
+	<!-- Header de la página -->
+	<section class="bg-gradient-to-br from-gray-900 via-zinc-800 to-stone-900 py-16 border-b-4 border-amber-600/50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h1 class="text-4xl sm:text-5xl font-bold mb-6 font-serif">
+				<span class="text-amber-400">🎬 Film Noir</span>
+				<span class="block text-gray-200 text-3xl sm:text-4xl mt-2">Portrait</span>
+			</h1>
+			<p class="text-xl mb-8 max-w-2xl mx-auto text-gray-300 leading-relaxed">
+				Viaja al pasado de las Américas del siglo XIX (1800s). Transforma tu retrato en una fotografía histórica 
+				con la elegancia victoriana y el misterio de los antiguos daguerrotipos. 📜
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center text-sm">
+				<span class="bg-white bg-opacity-10 px-3 py-1 rounded-full border border-amber-500/30">📜 Siglo XIX</span>
+				<span class="bg-white bg-opacity-10 px-3 py-1 rounded-full border border-amber-500/30">🏛️ Era Victoriana</span>
+				<span class="bg-white bg-opacity-10 px-3 py-1 rounded-full border border-amber-500/30">📷 Estilo Daguerrotipo</span>
+				<span class="bg-white bg-opacity-10 px-3 py-1 rounded-full border border-amber-500/30">�️ América Antigua</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Formulario principal -->
+	<section class="py-16 bg-gradient-to-b from-zinc-50 to-stone-100">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white rounded-2xl shadow-elegant overflow-hidden border-2 border-gray-200">
+				
+				<!-- Header del formulario -->
+				<div class="bg-gradient-to-r from-gray-900 via-zinc-800 to-stone-900 px-8 py-6 border-b-2 border-amber-600/30">
+					<h2 class="text-2xl font-bold text-white mb-2 font-serif">📜 Crear tu Retrato del Siglo XIX</h2>
+					<p class="text-gray-300">Sube tu foto y viaja a la América victoriana del 1800s</p>
+				</div>
+
+				<!-- Contenido del formulario -->
+				<FilmNoirForm client:load />
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección informativa -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4 font-serif">¿Qué hace especial nuestro Retrato del Siglo XIX? 📜</h2>
+				<p class="text-lg text-gray-700 max-w-2xl mx-auto">
+					Capturamos la esencia de la fotografía histórica americana con autenticidad victoriana
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+				
+				<!-- Proceso 1 -->
+				<div class="text-center p-6 bg-gray-900 rounded-xl border-2 border-amber-600/30 transform hover:scale-105 transition-transform">
+					<div class="text-4xl mb-4">📷</div>
+					<h3 class="text-lg font-semibold text-amber-400 mb-2">Fotografía Histórica</h3>
+					<p class="text-sm text-gray-300">Estilo daguerrotipo/tintype de la fotografía primitiva del 1800s</p>
+				</div>
+
+				<!-- Proceso 2 -->
+				<div class="text-center p-6 bg-zinc-800 rounded-xl border-2 border-amber-600/30 transform hover:scale-105 transition-transform">
+					<div class="text-4xl mb-4">🏛️</div>
+					<h3 class="text-lg font-semibold text-amber-400 mb-2">Interior Victoriano</h3>
+					<p class="text-sm text-gray-300">Ambientes del siglo XIX con muebles victorianos y detalles de época</p>
+				</div>
+
+				<!-- Proceso 3 -->
+				<div class="text-center p-6 bg-stone-900 rounded-xl border-2 border-amber-600/30 transform hover:scale-105 transition-transform">
+					<div class="text-4xl mb-4">🕰️</div>
+					<h3 class="text-lg font-semibold text-amber-400 mb-2">Textura Vintage</h3>
+					<p class="text-sm text-gray-300">Sepia o B&N con grano vintage y viñeteado de fotografía antigua</p>
+				</div>
+
+			</div>
+
+			<!-- Consejos -->
+			<div class="bg-gradient-to-r from-gray-900 to-zinc-800 rounded-2xl p-8 border-2 border-amber-600/30">
+				<h3 class="text-2xl font-bold text-center text-amber-400 mb-6 font-serif">💡 Consejos para mejores resultados</h3>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-200">
+					<div class="flex items-start space-x-3">
+						<span class="text-amber-400 text-xl">📸</span>
+						<p><strong>Foto frontal:</strong> Retratos de frente como en fotografías del siglo XIX</p>
+					</div>
+					<div class="flex items-start space-x-3">
+						<span class="text-amber-400 text-xl">�</span>
+						<p><strong>Expresión solemne:</strong> Las fotos antiguas raramente mostraban sonrisas</p>
+					</div>
+					<div class="flex items-start space-x-3">
+						<span class="text-amber-400 text-xl">�️</span>
+						<p><strong>Textura vintage:</strong> Especifica "más grano" o "efecto sepia" en detalles</p>
+					</div>
+					<div class="flex items-start space-x-3">
+						<span class="text-amber-400 text-xl">🏛️</span>
+						<p><strong>Ambiente 1800s:</strong> Añade "salón victoriano", "Old West" o "Belle Époque"</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Características del Film Noir -->
+	<section class="py-16 bg-zinc-50">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4 font-serif">Elementos del Siglo XIX Americano 📜</h2>
+			</div>
+
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+				<div class="text-center p-4 bg-white rounded-lg border border-gray-300">
+					<div class="text-3xl mb-2">�</div>
+					<p class="text-sm font-semibold text-gray-800">Daguerrotipo</p>
+				</div>
+				<div class="text-center p-4 bg-white rounded-lg border border-gray-300">
+					<div class="text-3xl mb-2">�️</div>
+					<p class="text-sm font-semibold text-gray-800">Era Victoriana</p>
+				</div>
+				<div class="text-center p-4 bg-white rounded-lg border border-gray-300">
+					<div class="text-3xl mb-2">�️</div>
+					<p class="text-sm font-semibold text-gray-800">Vintage 1800s</p>
+				</div>
+				<div class="text-center p-4 bg-white rounded-lg border border-gray-300">
+					<div class="text-3xl mb-2">🎩</div>
+					<p class="text-sm font-semibold text-gray-800">Elegancia Antigua</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action -->
+	<section class="py-16 bg-gradient-to-r from-gray-900 via-zinc-800 to-stone-900 border-t-4 border-amber-600/50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+			<h2 class="text-3xl font-bold mb-4 font-serif">¿Listo para tu Retrato del Siglo XIX? 📜</h2>
+			<p class="text-xl mb-8 text-gray-300">
+				¡Viaja al pasado y captura la elegancia victoriana de las Américas del 1800s!
+			</p>
+			<Button 
+				className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-200 border-2 border-amber-400/50"
+				onClick="document.querySelector('form').scrollIntoView({ behavior: 'smooth' })"
+			>
+				📜 Crear Mi Retrato Histórico Ahora
+			</Button>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.shadow-elegant {
+		box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+	}
+	
+	.bg-gradient-to-br {
+		background-size: 200% 200%;
+		animation: gradientShift 8s ease infinite;
+	}
+
+	@keyframes gradientShift {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	/* Hover effects para las características */
+	.bg-gray-900:hover,
+	.bg-zinc-800:hover,
+	.bg-stone-900:hover {
+		box-shadow: 0 10px 25px -3px rgba(251, 191, 36, 0.3);
+	}
+
+	/* Tipografía serif para Film Noir */
+	.font-serif {
+		font-family: 'Georgia', 'Times New Roman', serif;
+	}
+</style>

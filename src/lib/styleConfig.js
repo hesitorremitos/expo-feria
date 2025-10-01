@@ -63,6 +63,22 @@ export const STYLE_CONFIGS = {
     downloads: [
       { key: 'person', label: 'Descargar Original' }
     ]
+  },
+
+  'film-noir-portrait': {
+    name: 'Film Noir Portrait',
+    emoji: '🎬',
+    description: 'Retrato cinematográfico estilo Film Noir con ambiente Art Deco',
+    requiredImages: ['person'],
+    hasCelebrity: false,
+    displayFields: {
+      title: (data) => 'Film Noir Portrait',
+      subtitle: (data) => data.extraDetails || 'Art Deco Lounge',
+      type: 'Cinematic Portrait'
+    },
+    downloads: [
+      { key: 'person', label: 'Descargar Original' }
+    ]
   }
 };
 

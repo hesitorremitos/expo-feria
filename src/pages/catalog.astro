@@ -37,6 +37,9 @@ const figureImages = allImages.filter(img =>
 const buzzCutImages = allImages.filter(img => 
 	img.generation?.styleId === 'buzz-cut-street'
 );
+const filmNoirImages = allImages.filter(img => 
+	img.generation?.styleId === 'film-noir-portrait'
+);
 
 // Datos de los estilos disponibles
 const styles = [
@@ -79,6 +82,17 @@ const styles = [
 			'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 		],
 		totalGenerated: buzzCutImages.length
+	},
+	{
+		id: 'film-noir',
+		title: '📜 Retrato Siglo XIX',
+		description: "Retrato histórico del siglo XIX americano con estilo daguerrotipo/tintype, ambiente victoriano elegante y textura vintage de los años 1800s. Sepia o blanco y negro.",
+		images: filmNoirImages.slice(0, 3).map(img => img.imageUrl || img.url) || [
+			'https://images.unsplash.com/photo-1485199433301-2afab2c3e1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+			'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+		],
+		totalGenerated: filmNoirImages.length
 	}
 ];
 
